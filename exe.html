@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AYC Camp 2025 — Anointed Youth for Christ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+:root{
+  --white:#ffffff;--off:#f8f9fc;--light:#eef1f8;--border:#dde3f0;
+  --navy:#0f1d3a;--deep:#162344;--blue:#1e3a7a;--mid:#2557b8;--sky:#4580d4;
+  --black:#080f1e;--ink:#1a2540;--slate:#4a5a7a;--muted:#8899bb;
+  --green:#1a7a3a;--gold:#c8a84b;--accent:#e8534a;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+/* ── TICKER ── */
+.ticker-bar{background:var(--accent);overflow:hidden;height:38px;display:flex;align-items:center;position:relative;z-index:700}
+.ticker-label{flex-shrink:0;background:var(--navy);color:#fff;font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:0 18px;height:100%;display:flex;align-items:center;gap:7px;white-space:nowrap;z-index:2}
+.ticker-label i{font-size:.75rem;animation:blink 1.2s ease infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
+.ticker-track{display:flex;align-items:center;animation:ticker 26s linear infinite;white-space:nowrap;gap:0}
+.ticker-track:hover{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;font-size:.72rem;font-weight:600;color:#fff;letter-spacing:.04em;padding:0 32px}
+.ticker-item .dot{width:5px;height:5px;background:rgba(255,255,255,.5);border-radius:50%;flex-shrink:0}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* PT OVERLAY */
+.pt-overlay{position:fixed;inset:0;z-index:9999;pointer-events:none;display:flex;align-items:center;justify-content:center;background:var(--navy);clip-path:circle(0% at 50% 50%);transition:clip-path 0.7s cubic-bezier(.77,0,.18,1)}
+.pt-overlay.active{clip-path:circle(150% at 50% 50%);pointer-events:all}
+.pt-youth-icons{display:flex;gap:16px;opacity:0;transition:opacity 0.3s 0.3s}
+.pt-overlay.active .pt-youth-icons{opacity:1}
+.pt-youth-icons span{font-size:2rem;animation:popBounce 0.5s ease forwards;opacity:0}
+.pt-youth-icons span:nth-child(1){animation-delay:0.1s}.pt-youth-icons span:nth-child(2){animation-delay:0.2s}
+.pt-youth-icons span:nth-child(3){animation-delay:0.3s}.pt-youth-icons span:nth-child(4){animation-delay:0.4s}
+.pt-youth-icons span:nth-child(5){animation-delay:0.5s}
+@keyframes popBounce{0%{opacity:0;transform:scale(0) rotate(-20deg)}70%{transform:scale(1.3) rotate(5deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+
+/* NAVBAR */
+nav{position:sticky;top:0;z-index:600;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:66px;box-shadow:0 4px 28px rgba(15,29,58,.07)}
+.logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--navy);clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.75rem}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-top{font-size:.52rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mid)}
+.logo-main{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--navy)}
+.nav-links{list-style:none;display:flex;gap:30px}
+.nav-links a{text-decoration:none;font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);transition:color .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-btn{font-weight:600;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:10px 24px;border-radius:50px;cursor:pointer;text-decoration:none;transition:background .25s}
+.nav-btn:hover{background:var(--mid)}
+
+/* CAMP HERO */
+.camp-hero{background:var(--navy);padding:90px 56px 60px;position:relative;overflow:hidden;text-align:center}
+.camp-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 30% 50%,rgba(30,58,122,.35),transparent 70%),radial-gradient(ellipse 50% 60% at 80% 40%,rgba(69,128,212,.15),transparent 70%);pointer-events:none}
+.camp-hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.camp-eyebrow{font-size:.58rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.45);display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px;position:relative;z-index:2;opacity:0;animation:fadeUp .8s .1s forwards}
+.camp-eyebrow::before,.camp-eyebrow::after{content:'';width:18px;height:1px;background:rgba(255,255,255,.3)}
+.camp-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5.5rem);font-weight:700;color:#fff;line-height:1.05;position:relative;z-index:2;opacity:0;animation:fadeUp .9s .22s forwards}
+.camp-h1 em{font-style:italic;color:rgba(255,255,255,.45)}
+.camp-hero-info{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;gap:28px;margin-top:28px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .4s forwards}
+.camp-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:8px 18px;font-size:.75rem;color:rgba(255,255,255,.7);backdrop-filter:blur(6px)}
+.camp-badge i{color:rgba(255,255,255,.45)}
+.camp-hero-btns{position:relative;z-index:2;display:flex;justify-content:center;gap:14px;margin-top:36px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .56s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* REG HERO STRIP */
+.reg-hero-strip{background:linear-gradient(135deg,var(--navy) 0%,var(--blue) 100%);padding:18px 56px;display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;border-bottom:3px solid var(--mid)}
+.reg-hero-card{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:14px 22px;backdrop-filter:blur(8px)}
+.reg-hero-card .rh-icon{font-size:1.6rem}
+.reg-hero-card .rh-text{display:flex;flex-direction:column}
+.reg-hero-card .rh-val{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:700;color:#fff}
+.reg-hero-card .rh-sub{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.reg-hero-open{background:var(--accent);color:#fff;border:none;border-radius:50px;padding:14px 32px;font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:background .25s,transform .2s;animation:pulse-cta 2.5s ease infinite}
+.reg-hero-open:hover{background:#c93f37;transform:translateY(-2px)}
+@keyframes pulse-cta{0%,100%{box-shadow:0 0 0 0 rgba(232,83,74,.4)}50%{box-shadow:0 0 0 10px rgba(232,83,74,0)}}
+
+/* CAMP INFO STRIP */
+.camp-info-strip{background:var(--blue);display:grid;grid-template-columns:repeat(4,1fr);text-align:center}
+.ci-item{padding:32px 24px;border-right:1px solid rgba(255,255,255,.08)}
+.ci-item:last-child{border-right:none}
+.ci-icon{font-size:1.5rem;color:rgba(255,255,255,.4);margin-bottom:8px}
+.ci-val{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:700;color:#fff}
+.ci-label{font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px}
+
+/* CAMP ABOUT */
+.camp-about{padding:80px 56px;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.section-tag{font-size:.56rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mid);font-weight:600;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.section-tag::before{content:'';width:16px;height:1.5px;background:var(--mid)}
+.camp-about-left h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--navy);line-height:1.1}
+.camp-about-left h2 em{font-style:italic;color:var(--mid)}
+.camp-about-left p{font-size:.9rem;color:var(--slate);line-height:1.9;font-weight:300;margin-top:14px}
+.camp-highlights{display:flex;flex-direction:column;gap:14px;margin-top:32px}
+.highlight-item{display:flex;align-items:flex-start;gap:14px;padding:16px;background:var(--off);border-radius:12px;border:1px solid var(--border)}
+.hi-icon{width:38px;height:38px;background:var(--navy);border-radius:10px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.9rem;flex-shrink:0}
+.hi-text h4{font-size:.87rem;font-weight:600;color:var(--navy);margin-bottom:3px}
+.hi-text p{font-size:.78rem;color:var(--muted);font-weight:300}
+
+/* SCHEDULE */
+.schedule-section{background:var(--off);padding:72px 56px;border-top:1px solid var(--border)}
+.schedule-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.day-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:28px 24px;transition:transform .3s,box-shadow .3s}
+.day-card:hover{transform:translateY(-5px);box-shadow:0 16px 42px rgba(15,29,58,.1)}
+.day-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.day-event{display:flex;gap:12px;margin-bottom:10px}
+.day-time{font-size:.65rem;font-weight:600;letter-spacing:.08em;color:var(--mid);flex-shrink:0;margin-top:2px}
+.day-evt-name{font-size:.82rem;color:var(--slate);font-weight:300}
+
+/* SPLIT REG SECTION */
+.split-reg-section{display:grid;grid-template-columns:1fr 1.15fr;min-height:100vh;background:var(--white)}
+.split-left{background:linear-gradient(160deg,var(--navy) 0%,#0a1628 60%,#141e3a 100%);padding:64px 52px;position:sticky;top:66px;height:calc(100vh - 66px);overflow:hidden;display:flex;flex-direction:column;justify-content:center}
+.split-left::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 20% 80%,rgba(37,87,184,.22),transparent 70%),radial-gradient(ellipse 50% 50% at 80% 20%,rgba(69,128,212,.1),transparent 70%);pointer-events:none}
+.split-left-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:40px 40px;pointer-events:none}
+.sl-eyebrow{font-size:.56rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:10px;margin-bottom:22px;position:relative;z-index:2}
+.sl-eyebrow::after{content:'';flex:0 0 28px;height:1.5px;background:var(--accent)}
+.sl-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,3.2vw,3.4rem);font-weight:700;color:#fff;line-height:1.08;position:relative;z-index:2}
+.sl-heading em{font-style:italic;color:rgba(255,255,255,.35)}
+.sl-body{font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.85;font-weight:300;margin-top:18px;position:relative;z-index:2;max-width:380px}
+.sl-features{display:flex;flex-direction:column;gap:12px;margin-top:32px;position:relative;z-index:2}
+.sl-feat{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:14px 16px;backdrop-filter:blur(4px);transition:background .25s}
+.sl-feat:hover{background:rgba(255,255,255,.09)}
+.sl-feat-icon{width:36px;height:36px;background:rgba(37,87,184,.5);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0}
+.sl-feat-text{display:flex;flex-direction:column}
+.sl-feat-title{font-size:.8rem;font-weight:600;color:#fff}
+.sl-feat-sub{font-size:.68rem;color:rgba(255,255,255,.4);font-weight:300}
+.sl-price-badge{display:inline-flex;align-items:center;gap:10px;background:var(--accent);border-radius:50px;padding:11px 22px;font-size:.75rem;font-weight:700;letter-spacing:.08em;color:#fff;margin-top:28px;position:relative;z-index:2;width:fit-content}
+.sl-price-badge .big{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700}
+.sl-quote{position:relative;z-index:2;margin-top:32px;border-left:3px solid rgba(255,255,255,.1);padding-left:18px}
+.sl-quote blockquote{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-style:italic;color:rgba(255,255,255,.45);line-height:1.6}
+.sl-quote cite{display:block;margin-top:8px;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.25);font-style:normal}
+
+/* RIGHT PANEL */
+.split-right{padding:60px 52px 80px;background:var(--white);overflow-y:auto}
+.reg-section-title{margin-bottom:36px}
+.reg-section-title .tag{font-size:.56rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--mid);display:flex;align-items:center;gap:9px;margin-bottom:10px}
+.reg-section-title .tag::before{content:'';width:16px;height:1.5px;background:var(--mid)}
+.reg-section-title h2{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;color:var(--navy)}
+.reg-section-title h2 em{font-style:italic;color:var(--mid)}
+.reg-section-title p{font-size:.87rem;color:var(--muted);margin-top:6px;font-weight:300}
+
+/* TABS */
+.reg-tabs{display:flex;gap:0;background:var(--off);border-radius:50px;padding:4px;margin-bottom:36px;width:fit-content;border:1px solid var(--border)}
+.reg-tab{background:transparent;border:none;padding:11px 30px;border-radius:50px;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;color:var(--muted);transition:background .25s,color .25s}
+.reg-tab.active{background:var(--navy);color:#fff}
+
+/* FORM */
+.reg-form-wrap{background:var(--off);border-radius:20px;padding:38px;border:1px solid var(--border)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.6rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin-bottom:8px}
+.form-group input,.form-group select,.form-group textarea{width:100%;border:1.5px solid var(--border);border-radius:10px;padding:13px 15px;font-size:.9rem;font-family:inherit;color:var(--navy);outline:none;transition:border-color .25s,box-shadow .25s;background:#fff}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--navy);box-shadow:0 0 0 3px rgba(15,29,58,.06)}
+.form-group textarea{resize:vertical;min-height:70px}
+.form-divider{border:none;border-top:1px solid var(--border);margin:24px 0}
+.form-section-title{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--navy);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.form-section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.member-block{background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px;margin-bottom:14px;position:relative}
+.member-block h4{font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:14px}
+.add-member-btn{width:100%;background:transparent;border:1.5px dashed var(--border);border-radius:10px;padding:12px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:border-color .25s,color .25s}
+.add-member-btn:hover{border-color:var(--navy);color:var(--navy)}
+
+/* PAYMENT */
+.payment-section{background:#fff;border-radius:14px;padding:28px;border:1.5px solid var(--border);margin-top:24px}
+.payment-section h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--navy);margin-bottom:16px}
+.payment-amount{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;color:var(--navy);line-height:1}
+.payment-amount span{font-size:.85rem;font-weight:400;color:var(--muted);font-family:'DM Sans',sans-serif}
+.payment-opts{display:flex;gap:12px;margin:20px 0}
+.pay-opt{flex:1;border:1.5px solid var(--border);border-radius:10px;padding:14px 16px;cursor:pointer;transition:border-color .25s;text-align:center}
+.pay-opt.selected,.pay-opt:hover{border-color:var(--navy);background:var(--off)}
+.pay-opt-title{font-size:.8rem;font-weight:600;color:var(--navy);margin-bottom:3px}
+.pay-opt-sub{font-size:.68rem;color:var(--muted);font-weight:300}
+.qr-box{display:none;flex-direction:column;align-items:center;gap:16px;padding:28px;background:var(--off);border-radius:14px;border:1px solid var(--border);margin-top:16px;text-align:center}
+.qr-box.show{display:flex}
+.qr-img{width:180px;height:180px;background:var(--white);border-radius:12px;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--muted);overflow:hidden}
+.qr-img img{width:100%;height:100%;object-fit:contain;border-radius:10px}
+.qr-img i{font-size:3rem}
+.qr-upi{font-size:.88rem;font-weight:600;color:var(--navy)}
+.qr-note{font-size:.75rem;color:var(--muted);max-width:240px;line-height:1.55}
+.submit-reg{width:100%;background:var(--navy);color:#fff;border:none;padding:16px;border-radius:12px;font-size:.82rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .2s;margin-top:8px;display:flex;align-items:center;justify-content:center;gap:10px}
+.submit-reg:hover{background:var(--mid);transform:translateY(-1px)}
+.submit-reg:disabled{opacity:.6;cursor:not-allowed;transform:none}
+
+/* TOAST */
+.toast{position:fixed;bottom:28px;right:28px;z-index:1000;background:var(--navy);color:#fff;border-radius:12px;padding:14px 22px;font-size:.8rem;font-weight:500;box-shadow:0 8px 32px rgba(15,29,58,.25);transform:translateY(80px);opacity:0;transition:all .35s ease;max-width:320px}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.error{background:#c0392b}
+.toast.success{background:var(--green)}
+
+/* SUCCESS */
+.success-modal{position:fixed;inset:0;z-index:900;background:rgba(15,29,58,.6);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center}
+.success-modal.show{display:flex}
+.success-box{background:#fff;border-radius:20px;padding:52px 44px;text-align:center;max-width:440px;width:90%;animation:scaleIn .4s ease}
+@keyframes scaleIn{from{transform:scale(.85);opacity:0}to{transform:scale(1);opacity:1}}
+.success-icon{width:72px;height:72px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.8rem;margin:0 auto 20px}
+.success-box h2{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:10px}
+.success-box p{font-size:.87rem;color:var(--slate);line-height:1.75;font-weight:300}
+.success-box .reg-id{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--mid);margin:18px 0 10px}
+.close-success{margin-top:28px;background:var(--navy);color:#fff;border:none;padding:12px 32px;border-radius:50px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s}
+.close-success:hover{background:var(--mid)}
+
+/* ADMIN */
+.admin-btn{position:fixed;bottom:28px;left:28px;z-index:800;background:var(--black);color:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:10px 18px;font-size:.62rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:background .25s,color .25s}
+.admin-btn:hover{background:var(--navy);color:#fff}
+.admin-modal{position:fixed;inset:0;z-index:950;background:rgba(8,15,30,.85);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center}
+.admin-modal.show{display:flex}
+.admin-login-box{background:#fff;border-radius:20px;padding:48px 40px;max-width:380px;width:90%;animation:scaleIn .4s ease}
+.admin-login-box h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.admin-login-box p{font-size:.8rem;color:var(--muted);margin-bottom:28px}
+.admin-panel{background:var(--off);border-radius:20px;padding:36px;max-width:1000px;width:95%;max-height:90vh;overflow-y:auto;animation:scaleIn .4s ease;position:relative}
+.admin-panel h2{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--navy);margin-bottom:6px}
+.close-admin{position:absolute;top:20px;right:20px;background:none;border:none;font-size:1.1rem;color:var(--muted);cursor:pointer;transition:color .2s}
+.close-admin:hover{color:var(--navy)}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:20px 0}
+.admin-stat{background:#fff;border-radius:12px;padding:20px;border:1px solid var(--border);text-align:center}
+.admin-stat .n{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:var(--navy)}
+.admin-stat .l{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.admin-table-wrap{background:#fff;border-radius:14px;overflow:auto;border:1px solid var(--border);margin-top:20px}
+.admin-table{width:100%;border-collapse:collapse;font-size:.78rem;min-width:900px}
+.admin-table th{background:var(--navy);color:#fff;padding:12px 14px;text-align:left;font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.admin-table td{padding:11px 14px;border-bottom:1px solid var(--border);color:var(--slate);font-weight:300;vertical-align:top}
+.admin-table tr:last-child td{border-bottom:none}
+.admin-table tr:hover td{background:var(--off)}
+.admin-table .members-cell{font-size:.7rem;max-width:200px}
+.admin-table .members-cell .mem-item{padding:2px 0;border-bottom:1px dashed var(--border)}
+.admin-table .members-cell .mem-item:last-child{border-bottom:none}
+.download-btn{background:var(--navy);color:#fff;border:none;padding:10px 22px;border-radius:50px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .25s;margin-top:16px}
+.download-btn:hover{background:var(--mid)}
+.pay-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:30px;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.pay-badge.paid{background:rgba(26,122,58,.12);color:#1a7a3a}
+.pay-badge.later{background:rgba(200,168,75,.12);color:#a87a00}
+.admin-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:16px}
+.refresh-btn{background:var(--mid);color:#fff;border:none;padding:10px 22px;border-radius:50px;font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:background .25s}
+.refresh-btn:hover{background:var(--blue)}
+
+/* VERSE BANNER */
+.verse-banner{background:var(--off);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:52px 56px;text-align:center}
+.verse-banner blockquote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,2.2rem);font-style:italic;color:var(--navy);line-height:1.55;max-width:760px;margin:0 auto}
+.verse-banner cite{display:block;font-size:.65rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:18px;font-style:normal}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* BUTTONS */
+.btn-navy{font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:13px 28px;border-radius:50px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:background .25s,transform .2s,gap .25s}
+.btn-navy:hover{background:var(--mid);transform:translateY(-2px);gap:16px}
+.btn-ghost-w{font-weight:500;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:rgba(255,255,255,.6);border:1.5px solid rgba(255,255,255,.2);padding:12px 26px;border-radius:50px;cursor:pointer;text-decoration:none;transition:border-color .25s,color .25s}
+.btn-ghost-w:hover{border-color:rgba(255,255,255,.6);color:#fff}
+
+/* WAVE */
+.wave-divider{display:block;width:100%;overflow:hidden;line-height:0;margin-top:-2px}
+.wave-divider svg{display:block;width:100%;height:36px}
+
+/* FOOTER */
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 56px;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:.68rem;color:rgba(255,255,255,.25);font-weight:300}
+.social-row{display:flex;gap:12px}
+.social-row a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);text-decoration:none;font-size:.8rem;transition:background .25s,color .25s,transform .25s}
+.social-row a:hover{background:var(--mid);color:#fff;transform:translateY(-2px)}
+
+/* SUPABASE NOTICE */
+.supabase-notice{background:#fff3cd;border:1px solid #ffc107;border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:.78rem;color:#856404;line-height:1.6;display:none}
+.supabase-notice.show{display:block}
+.supabase-notice strong{color:#533f03}
+.supabase-notice code{background:rgba(0,0,0,.08);border-radius:4px;padding:1px 5px;font-family:monospace;font-size:.85em}
+
+@media(max-width:1080px){
+  .split-reg-section{grid-template-columns:1fr}
+  .split-left{position:relative;top:0;height:auto;padding:52px 28px}
+  .split-right{padding:44px 28px}
+}
+@media(max-width:960px){
+  nav{padding:0 18px}.nav-links{display:none}
+  .camp-hero{padding:70px 20px 44px}
+  .camp-about{grid-template-columns:1fr;padding:56px 20px}
+  .schedule-grid{grid-template-columns:1fr}
+  .schedule-section{padding:60px 20px}
+  .camp-info-strip{grid-template-columns:1fr 1fr}
+  .ci-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .form-row{grid-template-columns:1fr}
+  .admin-stats{grid-template-columns:1fr 1fr}
+  .footer-bottom{padding:18px 20px}
+  .reg-hero-strip{padding:18px 20px}
+  .verse-banner{padding:40px 20px}
+}
+</style>
+</head>
+<body>
+
+<div class="pt-overlay" id="ptOverlay">
+  <div class="pt-youth-icons">
+    <span>🏕️</span><span>🔥</span><span>✝️</span><span>🕊️</span><span>🙌</span>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+  <div class="ticker-label"><i class="fas fa-circle"></i> LIVE NOW</div>
+  <div style="overflow:hidden;flex:1;display:flex">
+    <div class="ticker-track">
+      <div class="ticker-item"><span class="dot"></span>🏕️ Registration for <strong>&nbsp;Camp Magalono 3.0&nbsp;</strong> is NOW OPEN — Secure your spot today!</div>
+      <div class="ticker-item"><span class="dot"></span>🔥 AYC Camp 2025 — Fire, faith &amp; fellowship · 16 May 2026</div>
+      <div class="ticker-item"><span class="dot"></span>✝️ Worship · Teaching · Prayer · Fun · Community · Only ₹50 per person!</div>
+      <div class="ticker-item"><span class="dot"></span>🕊️ Open to all youth — Bring your friends. Don't miss it!</div>
+      <div class="ticker-item"><span class="dot"></span>🙌 Camp Magalono 3.0 · "Set Apart. Ignited for Christ." · Register NOW</div>
+      <div class="ticker-item"><span class="dot"></span>🏕️ Registration for <strong>&nbsp;Camp Magalono 3.0&nbsp;</strong> is NOW OPEN — Secure your spot today!</div>
+      <div class="ticker-item"><span class="dot"></span>🔥 AYC Camp 2025 — Fire, faith &amp; fellowship · 16 May 2026</div>
+      <div class="ticker-item"><span class="dot"></span>✝️ Worship · Teaching · Prayer · Fun · Community · Only ₹50 per person!</div>
+      <div class="ticker-item"><span class="dot"></span>🕊️ Open to all youth — Bring your friends. Don't miss it!</div>
+      <div class="ticker-item"><span class="dot"></span>🙌 Camp Magalono 3.0 · "Set Apart. Ignited for Christ." · Register NOW</div>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="yfc_home.html" class="logo-wrap">
+    <div class="logo-mark"><i class="fas fa-dove"></i></div>
+    <div class="logo-text">
+      <span class="logo-top">Anointed</span>
+      <span class="logo-main">Youth for Christ</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="index.html">About</a></li>
+    <li><a href="#about-camp">Camp Info</a></li>
+    <li><a href="#reg-section">Register</a></li>
+  </ul>
+  <a href="#reg-section" class="nav-btn">Register Now</a>
+</nav>
+
+<!-- CAMP HERO -->
+<section class="camp-hero" id="home">
+  <div class="camp-hero-grid"></div>
+  <div class="camp-eyebrow">AYC · Camp Magalono 3.0 · Annual Youth Camp 2025</div>
+  <h1 class="camp-h1">Set Apart.<br><em>Ignited for Christ.</em></h1>
+  <div class="camp-hero-info">
+    <div class="camp-badge"><i class="fas fa-calendar"></i>&nbsp;16 May 2026</div>
+    <div class="camp-badge"><i class="fas fa-location-dot"></i>&nbsp;Venue TBA</div>
+    <div class="camp-badge"><i class="fas fa-indian-rupee-sign"></i>&nbsp;₹50 per person</div>
+    <div class="camp-badge"><i class="fas fa-users"></i>&nbsp;Open to All Youth</div>
+  </div>
+  <div class="camp-hero-btns">
+    <a href="#reg-section" class="btn-navy">Register Now <i class="fas fa-arrow-right"></i></a>
+    <a href="#about-camp" class="btn-ghost-w">Learn More</a>
+  </div>
+</section>
+
+<!-- REG HERO STRIP -->
+<div class="reg-hero-strip">
+  <div class="reg-hero-card">
+    <div class="rh-icon">🏕️</div>
+    <div class="rh-text">
+      <div class="rh-val">Camp Magalono 3.0</div>
+      <div class="rh-sub">Registration Open</div>
+    </div>
+  </div>
+  <div class="reg-hero-card">
+    <div class="rh-icon">📅</div>
+    <div class="rh-text">
+      <div class="rh-val">16 May 2026</div>
+      <div class="rh-sub">One Transformative Day</div>
+    </div>
+  </div>
+  <div class="reg-hero-card">
+    <div class="rh-icon">💰</div>
+    <div class="rh-text">
+      <div class="rh-val">₹50 Only</div>
+      <div class="rh-sub">Your spot is waiting!</div>
+    </div>
+  </div>
+  <a href="#reg-section" class="reg-hero-open">
+    <i class="fas fa-pen-to-square"></i> Register for Camp
+  </a>
+</div>
+
+<!-- CAMP INFO STRIP -->
+<div class="camp-info-strip">
+  <div class="ci-item"><div class="ci-icon">🕊️</div><div class="ci-val">1</div><div class="ci-label">Day of Camp</div></div>
+  <div class="ci-item"><div class="ci-icon">🔥</div><div class="ci-val">3+</div><div class="ci-label">Sessions</div></div>
+  <div class="ci-item"><div class="ci-icon">🎵</div><div class="ci-val">Music Feast</div><div class="ci-label">Worship & Praise</div></div>
+  <div class="ci-item"><div class="ci-icon">🙏</div><div class="ci-val">₹50</div><div class="ci-label">Registration Fee</div></div>
+</div>
+
+<div class="wave-divider" style="background:var(--blue)">
+  <svg viewBox="0 0 1200 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,18 C300,36 900,0 1200,18 L1200,36 L0,36 Z" fill="#ffffff"/></svg>
+</div>
+
+<!-- CAMP ABOUT -->
+<section class="camp-about reveal" id="about-camp">
+  <div class="camp-about-left">
+    <p class="section-tag">About the Camp</p>
+    <h2>A day to encounter <em>God's presence</em></h2>
+    <p>AYC Camp is our annual youth gathering — a time to step away from the noise of life and step into the tangible presence of God. Worship, prayer, the Word, fellowship, and adventure await you.</p>
+    <p style="margin-top:10px">Whether you're a strong believer or just beginning to explore faith — this camp is for you.</p>
+  </div>
+  <div class="camp-highlights">
+    <div class="highlight-item"><div class="hi-icon"><i class="fas fa-fire"></i></div><div class="hi-text"><h4>Powerful Worship Sessions</h4><p>Spirit-led live worship with the Asaphians music ministry</p></div></div>
+    <div class="highlight-item"><div class="hi-icon"><i class="fas fa-book-open-reader"></i></div><div class="hi-text"><h4>Anointed Teaching</h4><p>In-depth Biblical sessions with our youth leaders and invited speakers</p></div></div>
+    <div class="highlight-item"><div class="hi-icon"><i class="fas fa-hands-praying"></i></div><div class="hi-text"><h4>Prayer & Ministry Time</h4><p>Personal ministry, intercession, and encounter with God</p></div></div>
+    <div class="highlight-item"><div class="hi-icon"><i class="fas fa-people-group"></i></div><div class="hi-text"><h4>Community & Fellowship</h4><p>Make lifelong friendships with other anointed youth</p></div></div>
+    <div class="highlight-item"><div class="hi-icon"><i class="fas fa-mountain-sun"></i></div><div class="hi-text"><h4>Fun Activities</h4><p>Games, outdoor activities, talent showcase & more!</p></div></div>
+  </div>
+</section>
+
+<div class="wave-divider" style="background:var(--white)">
+  <svg viewBox="0 0 1200 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,18 C300,0 900,36 1200,18 L1200,36 L0,36 Z" fill="#f8f9fc"/></svg>
+</div>
+
+<!-- SCHEDULE -->
+<section class="schedule-section reveal">
+  <p class="section-tag">Programme</p>
+  <h2 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:var(--navy)">Camp <em style="font-style:italic;color:var(--mid)">Schedule</em></h2>
+  <div class="schedule-grid">
+    <div class="day-card">
+      <h3>Day 1 — 16 May 2026</h3>
+      <div class="day-event"><div class="day-time">08:00 AM</div><div class="day-evt-name">Check-in & Registration</div></div>
+      <div class="day-event"><div class="day-time">09:00 AM</div><div class="day-evt-name">Inauguration Ceremony</div></div>
+      <div class="day-event"><div class="day-time">10:00 AM</div><div class="day-evt-name">Ice Breaking Session</div></div>
+      <div class="day-event"><div class="day-time">10:30 AM</div><div class="day-evt-name">Session 1</div></div>
+      <div class="day-event"><div class="day-time">11:30 AM</div><div class="day-evt-name">Session 2</div></div>
+      <div class="day-event"><div class="day-time">12:30 PM</div><div class="day-evt-name">Lunch Break</div></div>
+      <div class="day-event"><div class="day-time">02:00 PM</div><div class="day-evt-name">Session 3</div></div>
+      <div class="day-event"><div class="day-time">03:30 PM</div><div class="day-evt-name">Music Feast & Game Hub</div></div>
+      <div class="day-event"><div class="day-time">05:00 PM</div><div class="day-evt-name">Closing Ceremony</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VERSE BANNER -->
+<div class="wave-divider" style="background:var(--off)">
+  <svg viewBox="0 0 1200 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,18 C300,36 900,0 1200,18 L1200,36 L0,36 Z" fill="#f8f9fc"/></svg>
+</div>
+<div class="verse-banner reveal">
+  <blockquote>"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."</blockquote>
+  <cite>Jeremiah 29:11 · The heart behind every AYC Camp</cite>
+</div>
+
+<!-- SPLIT REGISTRATION SECTION -->
+<div class="wave-divider" style="background:var(--off)">
+  <svg viewBox="0 0 1200 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,18 C300,0 900,36 1200,18 L1200,36 L0,36 Z" fill="#ffffff"/></svg>
+</div>
+<section class="split-reg-section" id="reg-section">
+
+  <!-- LEFT INFO PANEL -->
+  <div class="split-left">
+    <div class="split-left-grid"></div>
+    <div class="sl-eyebrow">Camp Magalono 3.0 · 2026</div>
+    <h2 class="sl-heading">Your place<br>is waiting,<br><em>don't miss it.</em></h2>
+    <p class="sl-body">Registration for AYC Camp 2026 is now open. Just ₹50 gets you a transformative day of worship, the Word, prayer, fellowship, and fun. Register today!</p>
+    <div class="sl-features">
+      <div class="sl-feat"><div class="sl-feat-icon">🔥</div><div class="sl-feat-text"><div class="sl-feat-title">Powerful Worship & Ministry</div><div class="sl-feat-sub">Live sessions with the Asaphians</div></div></div>
+      <div class="sl-feat"><div class="sl-feat-icon">📖</div><div class="sl-feat-text"><div class="sl-feat-title">Anointed Word Sessions</div><div class="sl-feat-sub">Deep Biblical teaching from seasoned leaders</div></div></div>
+      <div class="sl-feat"><div class="sl-feat-icon">🙌</div><div class="sl-feat-text"><div class="sl-feat-title">Community & Fun</div><div class="sl-feat-sub">Games, music feast, lifelong friendships</div></div></div>
+      <div class="sl-feat"><div class="sl-feat-icon">🏕️</div><div class="sl-feat-text"><div class="sl-feat-title">16 May 2026</div><div class="sl-feat-sub">Open to all youth everywhere</div></div></div>
+    </div>
+    <div class="sl-price-badge"><span class="big">₹50</span> per person &nbsp;·&nbsp; Pay now or at camp</div>
+    <div class="sl-quote">
+      <blockquote>"The youth who encountered God at camp — became the leaders who changed their cities."</blockquote>
+      <cite>— AYC Vision Statement</cite>
+    </div>
+  </div>
+
+  <!-- RIGHT FORM PANEL -->
+  <div class="split-right">
+    <div class="reg-section-title">
+      <div class="tag">Register</div>
+      <h2>Camp <em>Registration</em></h2>
+      <p>Fill in your details to secure your spot · ₹50 per person</p>
+    </div>
+
+    <!-- SUPABASE CONFIG NOTICE (shown if not configured) -->
+    <div class="supabase-notice" id="supabaseNotice">
+      ⚠️ <strong>Supabase not configured yet.</strong> Registrations are currently saved locally only.<br>
+      To enable cloud storage: open this file, find <code>SUPABASE_URL</code> and <code>SUPABASE_ANON_KEY</code> at the top of the script, and replace them with your actual Supabase project credentials.<br>
+      Your Supabase table should have these columns: <code>reg_id, name, age, phone, whatsapp, email, place, church, diet, health, registration_type, member_count, members, payment, txn_id, amount, created_at</code>
+    </div>
+
+    <!-- TABS -->
+    <div class="reg-tabs">
+      <button class="reg-tab active" id="tabIndividual" onclick="switchTab('individual')">👤 Individual</button>
+      <button class="reg-tab" id="tabGroup" onclick="switchTab('group')">👥 Group</button>
+    </div>
+
+    <div class="reg-form-wrap">
+
+      <!-- INDIVIDUAL FORM -->
+      <div id="form-individual">
+        <div class="form-section-title">Personal Details</div>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" id="i_name" placeholder="Your full name"></div>
+          <div class="form-group"><label>Age *</label><input type="number" id="i_age" placeholder="Age" min="5" max="99"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Place / City *</label><input type="text" id="i_place" placeholder="Where are you from?"></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="i_phone" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email ID</label><input type="email" id="i_email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>WhatsApp Number *</label><input type="tel" id="i_wa" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-group">
+          <label>Are you currently attending a church?</label>
+          <select id="i_church_q" onchange="toggleChurchField('i_church_field','i_church_q')">
+            <option value="">Select...</option>
+            <option value="yes">Yes, I attend a church</option>
+            <option value="no">No / Not currently</option>
+          </select>
+        </div>
+        <div class="form-group" id="i_church_field" style="display:none">
+          <label>Church Name & Denomination</label>
+          <input type="text" id="i_church" placeholder="e.g. St. Paul's Church, CNI">
+        </div>
+        <div class="form-group">
+          <label>Dietary Preference</label>
+          <select id="i_diet">
+            <option value="Vegetarian">Vegetarian</option>
+            <option value="Non-Vegetarian">Non-Vegetarian</option>
+            <option value="Vegan">Vegan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Any Health Conditions / Special Needs</label>
+          <textarea id="i_health" placeholder="Please mention if any..."></textarea>
+        </div>
+      </div>
+
+      <!-- GROUP FORM -->
+      <div id="form-group-tab" style="display:none">
+        <div class="form-section-title">Group Lead Details</div>
+        <div class="form-row">
+          <div class="form-group"><label>Group Lead Name *</label><input type="text" id="g_name" placeholder="Lead name"></div>
+          <div class="form-group"><label>Phone Number *</label><input type="tel" id="g_phone" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Email ID</label><input type="email" id="g_email" placeholder="your@email.com"></div>
+          <div class="form-group"><label>WhatsApp Number *</label><input type="tel" id="g_wa" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+        <div class="form-group">
+          <label>Group / Church / Organisation Name</label>
+          <input type="text" id="g_groupname" placeholder="e.g. St. Thomas Youth, YMCA Kerala...">
+        </div>
+        <div class="form-group">
+          <label>Number of Participants (including you) *</label>
+          <select id="g_count" onchange="buildMemberFields()">
+            <option value="">Select count...</option>
+            <option>2</option><option>3</option><option>4</option><option>5</option>
+            <option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+            <option>11</option><option>12</option><option>13</option><option>14</option><option>15</option>
+          </select>
+        </div>
+        <div id="members-container"></div>
+      </div>
+
+      <!-- PAYMENT -->
+      <hr class="form-divider">
+      <div class="payment-section">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:10px">
+          <div>
+            <h3>Payment</h3>
+            <div style="font-size:.78rem;color:var(--muted);margin-top:4px;font-weight:300">₹50 per person</div>
+          </div>
+          <div style="text-align:right">
+            <div class="payment-amount" id="payAmount">₹50 <span>/ 1 person</span></div>
+          </div>
+        </div>
+        <div class="payment-opts">
+          <div class="pay-opt selected" id="payNowOpt" onclick="selectPay('now')">
+            <div class="pay-opt-title">💳 Pay Now</div>
+            <div class="pay-opt-sub">Scan QR & pay instantly</div>
+          </div>
+          <div class="pay-opt" id="payLaterOpt" onclick="selectPay('later')">
+            <div class="pay-opt-title">📅 Pay at Camp</div>
+            <div class="pay-opt-sub">Bring cash on the day</div>
+          </div>
+        </div>
+        <div class="qr-box show" id="qrBox">
+          <div class="qr-img">
+            <img src="pay.jpeg" alt="UPI QR Code" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+            <div style="display:none;flex-direction:column;align-items:center;gap:8px;color:var(--muted)">
+              <i class="fas fa-qrcode" style="font-size:3rem"></i>
+              <span style="font-size:.68rem">QR Code (pay.jpeg)</span>
+            </div>
+          </div>
+          <div class="qr-upi">UPI: 9037106580</div>
+          <div style="font-size:.87rem;font-weight:600;color:var(--navy)" id="qrAmount">Amount: ₹50</div>
+          <div class="qr-note">After payment, enter the transaction ID below so we can verify your registration.</div>
+          <div class="form-group" style="width:100%;margin-bottom:0">
+            <label>UPI Transaction ID *</label>
+            <input type="text" id="txnId" placeholder="e.g. 408xxxxxxxxxxxxx">
+          </div>
+        </div>
+      </div>
+
+      <button class="submit-reg" id="submitBtn" onclick="submitRegistration()">
+        <i class="fas fa-check-circle"></i> Complete Registration
+      </button>
+      <p style="text-align:center;font-size:.7rem;color:var(--muted);margin-top:14px;font-weight:300">
+        By registering you agree to abide by the camp rules and code of conduct.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="wave-divider" style="background:var(--white)">
+  <svg viewBox="0 0 1200 36" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,18 C300,0 900,36 1200,18 L1200,36 L0,36 Z" fill="#080f1e"/></svg>
+</div>
+<footer>
+  <div class="footer-bottom">
+    <p>© 2026 Anointed Youth for Christ. AYC Camp Magalono 3.0.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/youth_4__christ" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@youthforchrist-n8q" target="_blank" rel="noopener"><i class="fab fa-youtube"></i></a>
+      <a href="https://chat.whatsapp.com/KrGKMg4gRcL1gGUpZb3tRY" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- SUCCESS MODAL -->
+<div class="success-modal" id="successModal">
+  <div class="success-box">
+    <div class="success-icon">🎉</div>
+    <h2>Registration Complete!</h2>
+    <p>You're officially registered for AYC Camp Magalono 3.0 · 2026. God has great things in store! We'll confirm via WhatsApp soon.</p>
+    <div class="reg-id" id="regIdDisplay">AYC-00001</div>
+    <div style="font-size:.7rem;color:var(--muted);margin-bottom:4px">Save this Registration ID</div>
+    <button class="close-success" onclick="closeSuccess()">Back to Camp Page</button>
+  </div>
+</div>
+
+<!-- ADMIN BUTTON -->
+<button class="admin-btn" onclick="openAdmin()">⚙ Admin</button>
+
+<!-- ADMIN MODAL -->
+<div class="admin-modal" id="adminModal">
+  <!-- LOGIN BOX -->
+  <div class="admin-login-box" id="adminLoginBox">
+    <h2>Admin Login</h2>
+    <p>Enter credentials to access registration data</p>
+    <div class="form-group"><label>Username</label><input type="text" id="adminUser" placeholder="admin" onkeydown="if(event.key==='Enter')adminLogin()"></div>
+    <div class="form-group"><label>Password</label><input type="password" id="adminPass" placeholder="••••••••" onkeydown="if(event.key==='Enter')adminLogin()"></div>
+    <button class="submit-reg" onclick="adminLogin()">Login <i class="fas fa-arrow-right"></i></button>
+    <button onclick="closeAdminModal()" style="width:100%;background:none;border:none;color:var(--muted);font-size:.75rem;margin-top:12px;cursor:pointer;text-transform:uppercase;letter-spacing:.1em">Cancel</button>
+  </div>
+  <!-- ADMIN PANEL -->
+  <div class="admin-panel" id="adminPanel" style="display:none">
+    <button class="close-admin" onclick="closeAdminModal()"><i class="fas fa-times"></i></button>
+    <h2>Registration Dashboard</h2>
+    <p style="font-size:.78rem;color:var(--muted);margin-top:4px;font-weight:300">AYC Camp Magalono 3.0 · 2026 — Live Data</p>
+    <div class="admin-stats">
+      <div class="admin-stat"><div class="n" id="statTotal">0</div><div class="l">Total Registrations</div></div>
+      <div class="admin-stat"><div class="n" id="statPeople">0</div><div class="l">Total People</div></div>
+      <div class="admin-stat"><div class="n" id="statPaid">0</div><div class="l">Paid Now</div></div>
+      <div class="admin-stat"><div class="n" id="statLater">0</div><div class="l">Pay at Camp</div></div>
+    </div>
+    <div class="admin-actions">
+      <button class="refresh-btn" onclick="fetchAdminData()"><i class="fas fa-sync-alt"></i> Refresh</button>
+      <button class="download-btn" onclick="downloadCSV()"><i class="fas fa-download"></i> Download CSV</button>
+    </div>
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead><tr>
+          <th>#</th><th>Reg ID</th><th>Name</th><th>Age</th><th>Phone</th><th>WhatsApp</th><th>Place</th><th>Church</th><th>Type</th><th>Members</th><th>Diet</th><th>Payment</th><th>Txn ID</th><th>Amount</th><th>Date</th>
+        </tr></thead>
+        <tbody id="adminTableBody"><tr><td colspan="15" style="text-align:center;padding:20px;color:var(--muted)">Loading...</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+// ════════════════════════════════════════════════════════
+// ✅ SUPABASE CONFIGURATION
+// Replace these two values with your actual Supabase project details.
+// Get them from: https://supabase.com → Your Project → Settings → API
+// ════════════════════════════════════════════════════════
+const SUPABASE_URL = 'https://jselhjvsmddlaacwydar.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_hnQXgJunymHZHyofTvEVCA_YH-p8vZ7';
+const SUPABASE_TABLE = 'camp_registrations';
+
+
+// ════════════════════════════════════════════════════════
+// ✅ GOOGLE SHEETS BACKUP (Optional)
+// Replace with your actual Google Apps Script Web App URL
+// ════════════════════════════════════════════════════════
+const GOOGLE_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbz9at0gHmPvm4WP2oi0v9ZafwZmOq1t8KgzfmGtn_yV5In5fmYYVZe8nT7202I7JhqEVw/exec';
+
+// ════════════════════════════════════════════════════════
+// ✅ ADMIN CREDENTIALS
+// ════════════════════════════════════════════════════════
+const ADMIN_USER = 'ayc_admin';
+const ADMIN_PASS = 'ayc@2025';
+
+// ════════════════════════════════════════════════════════
+// INIT SUPABASE (safe — checks if configured)
+// ════════════════════════════════════════════════════════
+let sb = null;
+let supabaseConfigured = false;
+
+try {
+  if (SUPABASE_URL.includes('YOUR_PROJECT_ID') || SUPABASE_ANON_KEY.includes('YOUR_SUPABASE_ANON_KEY')) {
+    console.warn('Supabase not configured — registrations will only be saved locally.');
+    document.getElementById('supabaseNotice').classList.add('show');
+  } else {
+    sb = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    supabaseConfigured = true;
+    console.log('✅ Supabase initialized.');
+  }
+} catch(e) {
+  console.error('Supabase init error:', e);
+}
+
+// ════════════════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════════════════
+let registrations = [];
+try { registrations = JSON.parse(localStorage.getItem('aycCampRegs') || '[]'); } catch(e) {}
+let adminData = [];
+let currentTab = 'individual';
+let currentPay = 'now';
+
+// ════════════════════════════════════════════════════════
+// TOAST
+// ════════════════════════════════════════════════════════
+function showToast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show ' + type;
+  setTimeout(() => { t.className = 'toast'; }, 4000);
+}
+
+// ════════════════════════════════════════════════════════
+// PAGE TRANSITION — only for actual page links (not #anchors)
+// ════════════════════════════════════════════════════════
+const overlay = document.getElementById('ptOverlay');
+document.querySelectorAll('a[href]').forEach(link => {
+  const href = link.getAttribute('href');
+  // Skip anchor links, external links, mailto, tel
+  if (!href || href.startsWith('#') || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel')) return;
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    if (overlay) overlay.classList.add('active');
+    setTimeout(() => { window.location.href = href; }, 700);
+  });
+});
+
+// ════════════════════════════════════════════════════════
+// SCROLL REVEAL
+// ════════════════════════════════════════════════════════
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ════════════════════════════════════════════════════════
+// TAB SWITCHING
+// ════════════════════════════════════════════════════════
+function switchTab(tab) {
+  currentTab = tab;
+  document.getElementById('tabIndividual').classList.toggle('active', tab === 'individual');
+  document.getElementById('tabGroup').classList.toggle('active', tab === 'group');
+  document.getElementById('form-individual').style.display = tab === 'individual' ? 'block' : 'none';
+  document.getElementById('form-group-tab').style.display = tab === 'group' ? 'block' : 'none';
+  updatePayAmount();
+}
+
+// ════════════════════════════════════════════════════════
+// CHURCH FIELD TOGGLE
+// ════════════════════════════════════════════════════════
+function toggleChurchField(fieldId, selectId) {
+  const val = document.getElementById(selectId)?.value;
+  const field = document.getElementById(fieldId);
+  if (field) field.style.display = val === 'yes' ? 'block' : 'none';
+}
+
+// ════════════════════════════════════════════════════════
+// GROUP MEMBER FIELDS
+// ════════════════════════════════════════════════════════
+function buildMemberFields() {
+  const count = parseInt(document.getElementById('g_count')?.value) || 0;
+  const container = document.getElementById('members-container');
+  if (!container) return;
+  container.innerHTML = '';
+  for (let i = 1; i <= count; i++) {
+    container.innerHTML += `
+      <div class="member-block">
+        <h4>Member ${i}${i === 1 ? ' — Group Lead' : ''}</h4>
+        <div class="form-row">
+          <div class="form-group"><label>Full Name *</label><input type="text" id="m${i}_name" placeholder="Full name"></div>
+          <div class="form-group"><label>Age</label><input type="number" id="m${i}_age" placeholder="Age" min="5" max="99"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label>Place</label><input type="text" id="m${i}_place" placeholder="City / Town"></div>
+          <div class="form-group"><label>Phone</label><input type="tel" id="m${i}_phone" placeholder="+91"></div>
+        </div>
+        <div class="form-group">
+          <label>Attending a Church?</label>
+          <select id="m${i}_church_q" onchange="toggleChurchField('m${i}_church_field','m${i}_church_q')">
+            <option value="">Select...</option>
+            <option value="yes">Yes</option>
+            <option value="no">No / Not currently</option>
+          </select>
+        </div>
+        <div class="form-group" id="m${i}_church_field" style="display:none">
+          <label>Church Name</label>
+          <input type="text" id="m${i}_church" placeholder="Church name">
+        </div>
+      </div>`;
+  }
+  updatePayAmount();
+}
+
+// ════════════════════════════════════════════════════════
+// UPDATE PAYMENT AMOUNT DISPLAY
+// ════════════════════════════════════════════════════════
+function updatePayAmount() {
+  let count = 1;
+  if (currentTab === 'group') {
+    count = parseInt(document.getElementById('g_count')?.value) || 0;
+  }
+  const amt = count * 50;
+  const payEl = document.getElementById('payAmount');
+  const qrEl = document.getElementById('qrAmount');
+  if (payEl) payEl.innerHTML = `₹${amt} <span>/ ${count} person${count !== 1 ? 's' : ''}</span>`;
+  if (qrEl) qrEl.textContent = `Amount: ₹${amt}`;
+}
+
+// ════════════════════════════════════════════════════════
+// PAY OPTION TOGGLE
+// ════════════════════════════════════════════════════════
+function selectPay(opt) {
+  currentPay = opt;
+  document.getElementById('payNowOpt').classList.toggle('selected', opt === 'now');
+  document.getElementById('payLaterOpt').classList.toggle('selected', opt === 'later');
+  document.getElementById('qrBox').classList.toggle('show', opt === 'now');
+}
+
+// ════════════════════════════════════════════════════════
+// FORM VALIDATION
+// ════════════════════════════════════════════════════════
+function validateIndividual() {
+  const name = document.getElementById('i_name')?.value.trim();
+  const phone = document.getElementById('i_phone')?.value.trim();
+  const wa = document.getElementById('i_wa')?.value.trim();
+  const age = document.getElementById('i_age')?.value.trim();
+  const place = document.getElementById('i_place')?.value.trim();
+  if (!name) { showToast('⚠️ Please enter your full name.', 'error'); return null; }
+  if (!age) { showToast('⚠️ Please enter your age.', 'error'); return null; }
+  if (!place) { showToast('⚠️ Please enter your place/city.', 'error'); return null; }
+  if (!phone) { showToast('⚠️ Please enter your phone number.', 'error'); return null; }
+  if (!wa) { showToast('⚠️ Please enter your WhatsApp number.', 'error'); return null; }
+  if (currentPay === 'now' && !document.getElementById('txnId')?.value.trim()) {
+    showToast('⚠️ Please enter the UPI Transaction ID after payment.', 'error'); return null;
+  }
+  const churchQ = document.getElementById('i_church_q')?.value;
+  const church = churchQ === 'yes' ? document.getElementById('i_church')?.value.trim() : (churchQ === 'no' ? 'Not attending' : 'Not specified');
+  return {
+    name, age, phone,
+    whatsapp: wa,
+    email: document.getElementById('i_email')?.value.trim() || '',
+    place,
+    church,
+    diet: document.getElementById('i_diet')?.value || 'Vegetarian',
+    health: document.getElementById('i_health')?.value.trim() || '',
+  };
+}
+
+function validateGroup() {
+  const count = parseInt(document.getElementById('g_count')?.value) || 0;
+  if (count < 2) { showToast('⚠️ Please select the number of participants.', 'error'); return null; }
+  const leadName = document.getElementById('m1_name')?.value.trim();
+  const leadPhone = document.getElementById('m1_phone')?.value.trim();
+  if (!leadName) { showToast('⚠️ Please fill in Group Lead (Member 1) name.', 'error'); return null; }
+  if (!leadPhone) { showToast('⚠️ Please fill in Group Lead (Member 1) phone.', 'error'); return null; }
+  const gWa = document.getElementById('g_wa')?.value.trim();
+  if (!gWa) { showToast('⚠️ Please enter group WhatsApp number.', 'error'); return null; }
+  if (currentPay === 'now' && !document.getElementById('txnId')?.value.trim()) {
+    showToast('⚠️ Please enter the UPI Transaction ID after payment.', 'error'); return null;
+  }
+  const members = [];
+  for (let i = 1; i <= count; i++) {
+    const mName = document.getElementById(`m${i}_name`)?.value.trim() || '';
+    const churchQ = document.getElementById(`m${i}_church_q`)?.value;
+    const church = churchQ === 'yes' ? (document.getElementById(`m${i}_church`)?.value.trim() || '') : (churchQ === 'no' ? 'Not attending' : '');
+    members.push({
+      name: mName,
+      age: document.getElementById(`m${i}_age`)?.value || '',
+      place: document.getElementById(`m${i}_place`)?.value.trim() || '',
+      phone: document.getElementById(`m${i}_phone`)?.value.trim() || '',
+      church
+    });
+  }
+  return {
+    name: leadName,
+    age: members[0]?.age || '',
+    phone: leadPhone,
+    whatsapp: gWa,
+    email: document.getElementById('g_email')?.value.trim() || '',
+    place: members[0]?.place || '',
+    church: members[0]?.church || '',
+    diet: '',
+    health: '',
+    group_name: document.getElementById('g_groupname')?.value.trim() || '',
+    members
+  };
+}
+
+// ════════════════════════════════════════════════════════
+// SUBMIT REGISTRATION
+// ════════════════════════════════════════════════════════
+async function submitRegistration() {
+  const btn = document.getElementById('submitBtn');
+  if (!btn) return;
+
+  // Validate
+  let formData = null;
+  if (currentTab === 'individual') {
+    formData = validateIndividual();
+  } else {
+    formData = validateGroup();
+  }
+  if (!formData) return;
+
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Saving...';
+
+  try {
+    const isGroup = currentTab === 'group';
+    const memberCount = isGroup ? (parseInt(document.getElementById('g_count')?.value) || 1) : 1;
+    const amount = memberCount * 50;
+    const regId = 'AYC-' + Date.now().toString().slice(-6);
+
+    const reg = {
+      reg_id: regId,
+      name: formData.name,
+      age: formData.age || null,
+      phone: formData.phone,
+      whatsapp: formData.whatsapp || '',
+      email: formData.email || '',
+      place: formData.place || '',
+      church: formData.church || '',
+      diet: formData.diet || '',
+      health: formData.health || '',
+      registration_type: isGroup ? 'Group' : 'Individual',
+      group_name: formData.group_name || '',
+      member_count: memberCount,
+      members: isGroup ? formData.members : [],
+      payment: currentPay === 'now' ? 'Paid' : 'Pay at Camp',
+      txn_id: document.getElementById('txnId')?.value.trim() || '',
+      amount,
+      created_at: new Date().toISOString()
+    };
+
+    // ── 1. SAVE TO SUPABASE (if configured) ──
+    if (supabaseConfigured && sb) {
+      const { error } = await sb.from(SUPABASE_TABLE).insert([reg]);
+      if (error) {
+        console.error('Supabase error:', error);
+        showToast('⚠️ Cloud save failed — saved locally. Contact admin.', 'error');
+      } else {
+        console.log('✅ Saved to Supabase');
+      }
+    }
+
+    // ── 2. LOCAL BACKUP ──
+    registrations.push(reg);
+    try { localStorage.setItem('aycCampRegs', JSON.stringify(registrations)); } catch(e) {}
+
+    // ── 3. GOOGLE SHEETS BACKUP (fire & forget) ──
+    if (GOOGLE_SHEETS_URL && !GOOGLE_SHEETS_URL.includes('YOUR')) {
+      fetch(GOOGLE_SHEETS_URL, {
+        method: 'POST',
+        body: JSON.stringify(reg),
+        headers: { 'Content-Type': 'application/json' }
+      }).catch(err => console.warn('Sheets backup failed (non-fatal):', err));
+    }
+
+    // ── SUCCESS ──
+    document.getElementById('regIdDisplay').textContent = regId;
+    document.getElementById('successModal').classList.add('show');
+    resetForm();
+
+  } catch (err) {
+    console.error('Submission error:', err);
+    showToast('❌ Error: ' + (err.message || 'Something went wrong. Please try again.'), 'error');
+  }
+
+  btn.disabled = false;
+  btn.innerHTML = '<i class="fas fa-check-circle"></i> Complete Registration';
+}
+
+// ════════════════════════════════════════════════════════
+// RESET FORM
+// ════════════════════════════════════════════════════════
+function resetForm() {
+  // Reset individual fields
+  ['i_name','i_age','i_place','i_phone','i_email','i_wa','i_church','i_health','txnId'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  ['i_church_q','i_diet'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.selectedIndex = 0;
+  });
+  document.getElementById('i_church_field').style.display = 'none';
+
+  // Reset group fields
+  ['g_name','g_phone','g_email','g_wa','g_groupname'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+  const gCount = document.getElementById('g_count');
+  if (gCount) gCount.selectedIndex = 0;
+  document.getElementById('members-container').innerHTML = '';
+
+  // Reset payment
+  selectPay('now');
+  updatePayAmount();
+}
+
+function closeSuccess() {
+  document.getElementById('successModal').classList.remove('show');
+}
+
+// ════════════════════════════════════════════════════════
+// ADMIN PANEL
+// ════════════════════════════════════════════════════════
+function openAdmin() {
+  document.getElementById('adminModal').classList.add('show');
+  document.getElementById('adminLoginBox').style.display = 'block';
+  document.getElementById('adminPanel').style.display = 'none';
+  document.getElementById('adminUser').value = '';
+  document.getElementById('adminPass').value = '';
+}
+
+function closeAdminModal() {
+  document.getElementById('adminModal').classList.remove('show');
+}
+
+function adminLogin() {
+  const u = document.getElementById('adminUser')?.value;
+  const p = document.getElementById('adminPass')?.value;
+  if (u === ADMIN_USER && p === ADMIN_PASS) {
+    document.getElementById('adminLoginBox').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    fetchAdminData();
+  } else {
+    showToast('❌ Invalid credentials.', 'error');
+  }
+}
+
+async function fetchAdminData() {
+  const tbody = document.getElementById('adminTableBody');
+  if (tbody) tbody.innerHTML = '<tr><td colspan="15" style="text-align:center;padding:20px;color:var(--muted)">Loading...</td></tr>';
+
+  if (supabaseConfigured && sb) {
+    try {
+      const { data, error } = await sb.from(SUPABASE_TABLE).select('*').order('created_at', { ascending: false });
+      if (error) throw error;
+      adminData = data || [];
+      renderAdminTable();
+      return;
+    } catch (err) {
+      console.error('Supabase fetch error:', err);
+      showToast('⚠️ Supabase fetch failed — showing local data.', 'error');
+    }
+  }
+  // Fallback to local
+  adminData = [...registrations].reverse();
+  renderAdminTable();
+}
+
+function renderAdminTable() {
+  const paid = adminData.filter(r => r.payment === 'Paid').length;
+  const totalPeople = adminData.reduce((acc, r) => acc + (parseInt(r.member_count) || 1), 0);
+
+  document.getElementById('statTotal').textContent = adminData.length;
+  document.getElementById('statPeople').textContent = totalPeople;
+  document.getElementById('statPaid').textContent = paid;
+  document.getElementById('statLater').textContent = adminData.length - paid;
+
+  const tbody = document.getElementById('adminTableBody');
+  if (!tbody) return;
+
+  if (adminData.length === 0) {
+    tbody.innerHTML = '<tr><td colspan="15" style="text-align:center;padding:20px;color:var(--muted)">No registrations found.</td></tr>';
+    return;
+  }
+
+  tbody.innerHTML = '';
+  adminData.forEach((r, i) => {
+    // Build members cell for groups
+    let membersCell = '-';
+    if (r.members && Array.isArray(r.members) && r.members.length > 0) {
+      membersCell = `<div class="members-cell">` +
+        r.members.map((m, idx) =>
+          `<div class="mem-item">${idx+1}. ${m.name || '-'} ${m.age ? '('+m.age+')' : ''} ${m.phone ? '· '+m.phone : ''}</div>`
+        ).join('') + `</div>`;
+    }
+
+    const date = r.created_at ? new Date(r.created_at).toLocaleString('en-IN', {day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '-';
+
+    tbody.innerHTML += `<tr>
+      <td>${i+1}</td>
+      <td><strong>${r.reg_id || '-'}</strong></td>
+      <td>${r.name || '-'}</td>
+      <td>${r.age || '-'}</td>
+      <td>${r.phone || '-'}</td>
+      <td>${r.whatsapp || '-'}</td>
+      <td>${r.place || '-'}</td>
+      <td>${r.church || '-'}</td>
+      <td>${r.registration_type || '-'} ${r.group_name ? '('+r.group_name+')' : ''}</td>
+      <td>${membersCell}</td>
+      <td>${r.diet || '-'}</td>
+      <td><span class="pay-badge ${r.payment==='Paid'?'paid':'later'}">${r.payment || '-'}</span></td>
+      <td>${r.txn_id || '-'}</td>
+      <td>₹${r.amount || 0}</td>
+      <td style="white-space:nowrap">${date}</td>
+    </tr>`;
+  });
+}
+
+// ════════════════════════════════════════════════════════
+// DOWNLOAD CSV
+// ════════════════════════════════════════════════════════
+function downloadCSV() {
+  const src = adminData.length > 0 ? adminData : registrations;
+  if (src.length === 0) { showToast('No data to download.', 'error'); return; }
+
+  const headers = ['Reg ID','Name','Age','Phone','WhatsApp','Email','Place','Church','Type','Group Name','Member Count','Payment','Txn ID','Amount','Diet','Health','Date'];
+  let csv = headers.join(',') + '\n';
+
+  src.forEach(r => {
+    const row = [
+      r.reg_id, r.name, r.age, r.phone, r.whatsapp, r.email, r.place, r.church,
+      r.registration_type, r.group_name || '', r.member_count,
+      r.payment, r.txn_id, r.amount, r.diet, r.health,
+      r.created_at ? new Date(r.created_at).toLocaleString() : ''
+    ];
+    csv += row.map(v => `"${String(v || '').replace(/"/g, '""')}"`).join(',') + '\n';
+
+    // Group member rows
+    if (r.members && Array.isArray(r.members) && r.members.length > 0) {
+      r.members.forEach((m, idx) => {
+        const mRow = [
+          '', `  ↳ Member ${idx+1}`, m.age||'', m.phone||'', '', '', m.place||'', m.church||'',
+          '', m.name||'', '', '', '', '', '', '', ''
+        ];
+        csv += mRow.map(v => `"${String(v||'').replace(/"/g,'""')}"`).join(',') + '\n';
+      });
+    }
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'AYC_Camp_Registrations_' + new Date().toISOString().slice(0, 10) + '.csv';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast('✅ CSV downloaded!', 'success');
+}
+
+// ════════════════════════════════════════════════════════
+// CLOSE MODALS ON OUTSIDE CLICK
+// ════════════════════════════════════════════════════════
+document.getElementById('adminModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAdminModal();
+});
+document.getElementById('successModal').addEventListener('click', function(e) {
+  if (e.target === this) closeSuccess();
+});
+
+// ════════════════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════════════════
+updatePayAmount();
+</script>
+</body>
+</html>
