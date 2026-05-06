@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Anointed Youth for Christ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+:root{
+  --white:#ffffff;
+  --off:#f8f9fc;
+  --light:#eef1f8;
+  --border:#dde3f0;
+  --navy:#0f1d3a;
+  --deep:#162344;
+  --blue:#1e3a7a;
+  --mid:#2557b8;
+  --sky:#4580d4;
+  --black:#080f1e;
+  --ink:#1a2540;
+  --slate:#3d4f70;
+  --muted:#6a7a9a;
+  --accent:#1e3a7a;
+  --gold:#c8a84b;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden}
+
+/* ── PAGE TRANSITION OVERLAY ── */
+.pt-overlay{position:fixed;inset:0;z-index:9999;pointer-events:none;display:flex;align-items:center;justify-content:center;background:var(--navy);clip-path:circle(0% at 50% 50%);transition:clip-path 0.7s cubic-bezier(.77,0,.18,1)}
+.pt-overlay.active{clip-path:circle(150% at 50% 50%);pointer-events:all}
+.pt-overlay.exit{clip-path:circle(0% at 50% 50%)}
+.pt-youth-icons{display:flex;gap:18px;opacity:0;transition:opacity 0.3s 0.3s}
+.pt-overlay.active .pt-youth-icons{opacity:1}
+.pt-youth-icons span{font-size:2rem;animation:popBounce 0.5s ease forwards;opacity:0}
+.pt-youth-icons span:nth-child(1){animation-delay:0.1s}
+.pt-youth-icons span:nth-child(2){animation-delay:0.2s}
+.pt-youth-icons span:nth-child(3){animation-delay:0.3s}
+.pt-youth-icons span:nth-child(4){animation-delay:0.4s}
+.pt-youth-icons span:nth-child(5){animation-delay:0.5s}
+@keyframes popBounce{0%{opacity:0;transform:scale(0) rotate(-20deg)}70%{transform:scale(1.3) rotate(5deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+
+/* ── TICKER ── */
+.ticker-wrap{background:var(--navy);height:38px;display:flex;align-items:center;overflow:hidden}
+.ticker-badge{flex-shrink:0;background:var(--mid);color:#fff;font-size:.55rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;padding:0 18px;height:100%;display:flex;align-items:center;gap:7px;white-space:nowrap}
+.ticker-badge .ldot{width:6px;height:6px;background:#fff;border-radius:50%;animation:lpulse 1.4s ease-in-out infinite}
+@keyframes lpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.3;transform:scale(.6)}}
+.ticker-runner{display:flex;white-space:nowrap;animation:run 32s linear infinite}
+.ticker-runner:hover{animation-play-state:paused}
+.ticker-item{display:inline-flex;align-items:center;gap:8px;font-size:.68rem;color:rgba(255,255,255,.75);padding:0 38px;letter-spacing:.04em;font-weight:400}
+.ticker-item::after{content:'✦';color:var(--sky);font-size:.45rem}
+@keyframes run{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ── NAVBAR ── */
+nav{position:sticky;top:0;z-index:600;background:rgba(255,255,255,.97);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 56px;height:66px;transition:box-shadow .3s}
+nav.elevated{box-shadow:0 4px 28px rgba(15,29,58,.08)}
+.logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{width:36px;height:36px;background:var(--navy);clip-path:polygon(50% 0%,100% 38%,82% 100%,18% 100%,0% 38%);display:flex;align-items:center;justify-content:center;color:#fff;font-size:.75rem;flex-shrink:0}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-top{font-size:.52rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--mid)}
+.logo-main{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:var(--navy)}
+.nav-links{list-style:none;display:flex;gap:34px}
+.nav-links a{text-decoration:none;font-size:.73rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--slate);position:relative;transition:color .25s;padding-bottom:3px}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;right:100%;height:1.5px;background:var(--navy);transition:right .3s}
+.nav-links a:hover,.nav-links a.active{color:var(--navy)}
+.nav-links a:hover::after,.nav-links a.active::after{right:0}
+.nav-btn{font-weight:600;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:10px 26px;border-radius:50px;cursor:pointer;text-decoration:none;transition:background .25s,transform .2s}
+.nav-btn:hover{background:var(--mid);transform:translateY(-1px)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--white);display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden}
+.hero-bg-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(15,29,58,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(15,29,58,.04) 1px,transparent 1px);background-size:48px 48px;pointer-events:none}
+.hero-blob1{position:absolute;top:-80px;right:-60px;width:420px;height:420px;background:radial-gradient(circle,rgba(30,58,122,.08),transparent 70%);pointer-events:none;border-radius:50%}
+.hero-blob2{position:absolute;bottom:-100px;left:-80px;width:360px;height:360px;background:radial-gradient(circle,rgba(30,58,122,.05),transparent 70%);pointer-events:none;border-radius:50%}
+
+.hero-body{position:relative;z-index:3;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:100px 56px 70px;gap:40px}
+.hero-left{padding-right:24px}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:.6rem;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--mid);margin-bottom:22px;opacity:0;animation:fadeUp .8s .1s forwards}
+.ey-line{width:20px;height:1.5px;background:var(--mid);border-radius:1px}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(3rem,5.5vw,5.8rem);font-weight:900;line-height:1.02;color:var(--navy);letter-spacing:-.02em;opacity:0;animation:fadeUp .9s .22s forwards}
+.hero-h1 .anointed{font-style:italic;color:var(--mid);display:block}
+.hero-h1 .muted{display:block;font-style:italic;color:var(--muted);font-size:.62em}
+.hero-verse{font-size:.9rem;color:var(--slate);font-style:italic;margin-top:16px;line-height:1.75;max-width:360px;opacity:0;animation:fadeUp .9s .38s forwards;font-weight:400}
+.hero-desc{font-size:.95rem;color:var(--slate);line-height:1.9;max-width:380px;margin-top:12px;font-weight:400;opacity:0;animation:fadeUp .9s .5s forwards}
+.hero-btns{display:flex;align-items:center;gap:14px;margin-top:34px;flex-wrap:wrap;opacity:0;animation:fadeUp .9s .62s forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+.btn-navy{font-weight:600;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:var(--navy);color:#fff;border:none;padding:13px 28px;border-radius:50px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:background .25s,transform .2s,gap .25s}
+.btn-navy:hover{background:var(--mid);transform:translateY(-2px);gap:16px}
+.btn-ghost{font-weight:500;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;background:transparent;color:var(--slate);border:1.5px solid var(--border);padding:12px 26px;border-radius:50px;cursor:pointer;text-decoration:none;transition:border-color .25s,color .25s,transform .2s}
+.btn-ghost:hover{border-color:var(--navy);color:var(--navy);transform:translateY(-2px)}
+
+/* ── HERO RIGHT ── */
+.hero-right{position:relative;height:540px}
+.arrows-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none;z-index:6}
+.arr-path{fill:none;stroke:var(--navy);stroke-width:1.2;stroke-dasharray:6 4;animation:dashFlow 2.5s linear infinite;opacity:.35}
+@keyframes dashFlow{to{stroke-dashoffset:-40}}
+.branch-label{position:absolute;z-index:7;font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:var(--navy);color:#fff;padding:5px 12px;border-radius:30px;white-space:nowrap;box-shadow:0 4px 14px rgba(15,29,58,.22);opacity:0;animation:fadeUp 1s forwards}
+.bl1{top:4%;right:3%;animation-delay:.9s}
+.bl2{top:4%;right:42%;animation-delay:1.1s}
+.bl3{bottom:30%;right:2%;animation-delay:1.3s}
+.bl4{bottom:8%;left:5%;animation-delay:1.5s}
+.bl5{bottom:22%;left:20%;animation-delay:1.7s}
+.bl6{top:30%;left:2%;animation-delay:1.9s}
+
+/* ── HERO VIDEO SLIDESHOW ── */
+.media-video{position:absolute;width:68%;height:72%;right:0;top:5%;border-radius:16px;overflow:hidden;box-shadow:0 24px 70px rgba(15,29,58,.18);z-index:2;border:2px solid var(--border); background: #000;}
+.vid-slide{position:absolute;inset:0;opacity:0;transition:opacity 0.6s ease;pointer-events:none;}
+.vid-slide.active{opacity:1;z-index:2;pointer-events:all;}
+.vid-slide video{width:100%;height:100%;object-fit:cover;display:block;}
+.vid-caption{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(15,29,58,.9),transparent);padding:24px 18px 18px;font-size:.75rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.95);z-index:3;pointer-events:none;}
+.vid-nav{position:absolute;top:18px;right:18px;z-index:10;display:flex;gap:8px;}
+.vid-btn{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.2);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.4);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem;cursor:pointer;transition:background 0.3s,transform 0.2s;}
+.vid-btn:hover{background:rgba(255,255,255,.4);transform:scale(1.05);}
+
+/* ── HERO SMALL IMAGE SLIDESHOW ── */
+/* Made wider and taller per request */
+.media-img-sm{position:absolute;width:54%;height:60%;left:-2%;bottom:4%;border-radius:14px;overflow:hidden;box-shadow:0 16px 48px rgba(15,29,58,.2);z-index:4;border:2.5px solid var(--white);background:var(--off);}
+.slide-sm{position:absolute;inset:0;opacity:0;transition:opacity 1.5s ease}
+.slide-sm.active{opacity:1}
+.slide-sm img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.slide-sm-fallback{width:100%;height:100%;background:var(--off);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;color:var(--muted)}
+.slide-sm-fallback i{font-size:1.5rem}
+.slide-sm-fallback span{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;text-align:center;padding:0 10px}
+.sm-img-label{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(15,29,58,.8),transparent);padding:14px;font-size:.62rem;font-weight:600;color:rgba(255,255,255,.95);letter-spacing:.1em;text-transform:uppercase;z-index:2}
+
+.stat-pill{position:absolute;z-index:5;background:var(--white);border-radius:50px;padding:9px 16px;display:flex;align-items:center;gap:10px;box-shadow:0 8px 28px rgba(15,29,58,.14);border:1px solid var(--border)}
+.pill-1{top:-14px;right:10%}
+.pill-2{bottom:-14px;right:16%}
+.pill-icon{width:30px;height:30px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem}
+.pill-num{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--navy);line-height:1}
+.pill-label{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);line-height:1.3}
+
+.hero-bar{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:18px 56px;border-top:1px solid var(--border)}
+.sdots{display:flex;gap:7px;align-items:center}
+.sdot{width:6px;height:6px;border-radius:50%;background:var(--border);border:none;cursor:pointer;transition:background .3s,transform .3s}
+.sdot.active{background:var(--navy);transform:scale(1.5)}
+.slide-ctr{font-size:.65rem;letter-spacing:.18em;color:var(--muted);font-weight:400}
+.scroll-hint{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:7px;font-weight:400}
+.scroll-hint i{animation:nudge 2s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s ease,transform .85s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── STATS BAND ── */
+.stats-band{
+  background:var(--navy);
+  position:relative;
+  overflow:hidden;
+}
+.stats-band::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 100% at 15% 50%,rgba(37,87,184,.22),transparent),
+    radial-gradient(ellipse 40% 80% at 85% 50%,rgba(69,128,212,.14),transparent),
+    radial-gradient(ellipse 30% 60% at 50% 0%,rgba(255,255,255,.03),transparent);
+}
+.stats-band::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(255,255,255,.04) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.stats-inner{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  max-width:1100px;
+  margin:0 auto;
+}
+.sb-item{
+  padding:68px 32px;
+  text-align:center;
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;
+}
+.sb-item:not(:last-child)::after{
+  content:'';position:absolute;
+  right:0;top:20%;bottom:20%;width:1px;
+  background:linear-gradient(to bottom,transparent,rgba(255,255,255,.15) 40%,rgba(255,255,255,.15) 60%,transparent);
+}
+.sb-icon{
+  width:56px;height:56px;border-radius:50%;
+  background:rgba(255,255,255,.06);
+  border:1.5px solid rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--sky);font-size:1.25rem;
+  margin-bottom:20px;
+  box-shadow:0 0 0 8px rgba(69,128,212,.06);
+}
+.sb-num-wrap{display:flex;align-items:baseline;justify-content:center;gap:2px;margin-bottom:10px}
+.sb-num{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(3rem,5vw,4.6rem);
+  font-weight:700;color:#fff;line-height:1;
+  letter-spacing:-.03em;
+}
+.sb-num-suffix{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,2.8vw,2.4rem);
+  font-weight:700;color:var(--sky);line-height:1;
+}
+.sb-label{
+  font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.55);font-weight:600;margin-bottom:4px;
+}
+.sb-sublabel{
+  font-size:.75rem;color:rgba(255,255,255,.22);font-weight:400;font-style:italic;
+}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr}
+.about-left{background:var(--off);padding:90px 64px 90px 56px}
+.about-right{background:var(--navy);display:flex;flex-direction:column;justify-content:center;padding:60px 44px 60px 60px;gap:12px}
+
+.section-tag{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--mid);font-weight:600;display:flex;align-items:center;gap:9px;margin-bottom:12px}
+.section-tag::before{content:'';width:16px;height:1.5px;background:var(--mid);border-radius:1px}
+.section-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.1;color:var(--navy)}
+.section-h2 em{font-style:italic;color:var(--mid)}
+.section-h2.light{color:#fff}
+.about-body{font-size:.95rem;color:var(--slate);line-height:1.9;font-weight:400;margin-top:14px;max-width:380px}
+.text-link{display:inline-flex;align-items:center;gap:9px;font-weight:600;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);text-decoration:none;margin-top:24px;padding-bottom:2px;border-bottom:1.5px solid var(--navy);transition:gap .25s,color .25s}
+.text-link:hover{gap:15px;color:var(--mid);border-color:var(--mid)}
+
+/* ── GALLERY SLIDESHOW ── */
+.gallery-slideshow{width:100%;position:relative;border-radius:10px;overflow:hidden;background:var(--white);}
+.gallery-slide{display:none;position:relative}
+.gallery-slide.active{display:block}
+/* Increased gallery height */
+.gallery-slide img{width:100%;height:350px;object-fit:cover;display:block;border-radius:10px}
+.gallery-slide-fallback{width:100%;height:350px;background:var(--light);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border-radius:10px}
+.gallery-slide-fallback i{font-size:2rem;color:var(--muted)}
+.gallery-slide-fallback span{font-size:.62rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;padding:0 16px}
+.gallery-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(15,29,58,.85),transparent);padding:14px 16px 12px;font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.9)}
+.gallery-nav{position:absolute;top:50%;transform:translateY(-50%);width:100%;display:flex;justify-content:space-between;padding:0 10px;z-index:4;pointer-events:none}
+.gallery-btn{pointer-events:all;width:30px;height:30px;background:rgba(255,255,255,.2);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:.7rem;cursor:pointer;transition:background .25s}
+.gallery-btn:hover{background:rgba(255,255,255,.4)}
+.gallery-dots{display:flex;justify-content:center;gap:5px;margin-top:8px}
+.gallery-dot{width:5px;height:5px;border-radius:50%;background:rgba(255,255,255,.25);border:none;cursor:pointer;transition:background .25s}
+.gallery-dot.active{background:rgba(255,255,255,.8)}
+
+/* ── VISION & MISSION ── */
+.vm-section{background:var(--black);padding:90px 56px;position:relative;overflow:hidden}
+.vm-section::before{content:'';position:absolute;left:-80px;top:-80px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(30,58,122,.2),transparent 70%);pointer-events:none}
+.vm-header{text-align:center;margin-bottom:56px}
+.vm-header .section-tag{justify-content:center}
+.vm-header .section-h2{color:#fff}
+.vm-cards{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.vm-card{border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:44px 40px;position:relative;overflow:hidden;transition:border-color .35s,transform .35s;background:rgba(255,255,255,.04)}
+.vm-card:hover{border-color:rgba(69,128,212,.35);transform:translateY(-5px)}
+.vm-num{font-family:'Playfair Display',serif;font-size:4.5rem;font-weight:700;color:rgba(255,255,255,.05);position:absolute;top:8px;right:20px;line-height:1;pointer-events:none}
+.vm-card:hover .vm-num{color:rgba(69,128,212,.12)}
+.vm-icon{width:46px;height:46px;border-radius:12px;background:rgba(30,58,122,.3);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.8);font-size:1.2rem;margin-bottom:18px}
+.vm-label{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--sky);font-weight:600;margin-bottom:9px}
+.vm-h3{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-weight:700;color:#fff;margin-bottom:12px}
+.vm-p{font-size:.9rem;color:rgba(255,255,255,.55);line-height:1.85;font-weight:400}
+
+/* ══════════════════════════════════════════════════
+   EXEC COMMITTEE — ELEGANT PORTRAIT CARDS
+   ══════════════════════════════════════════════════ */
+.exec-section{
+  background:#f4f5f8;
+  padding:96px 56px;
+}
+.exec-header{text-align:center;margin-bottom:60px}
+.exec-header .section-tag{justify-content:center}
+.exec-header .section-h2{text-align:center}
+.exec-subtitle{text-align:center;color:var(--muted);font-size:.92rem;margin-top:12px;font-weight:400;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.75}
+
+.exec-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1300px;margin:0 auto}
+
+.exec-card{
+  background:var(--white);
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  box-shadow:0 4px 20px rgba(15,29,58,.07);
+  transition:transform .4s cubic-bezier(.23,1,.32,1),box-shadow .4s ease;
+  cursor:default;
+  border:1px solid rgba(221,227,240,.6);
+}
+.exec-card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 32px 64px rgba(15,29,58,.14);
+}
+
+.exec-img{
+  width:100%;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  position:relative;
+  background:linear-gradient(145deg,#1c2f52 0%,#2d5fab 100%);
+  flex-shrink:0;
+}
+.exec-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transition:transform .7s cubic-bezier(.23,1,.32,1);
+}
+.exec-card:hover .exec-img img{transform:scale(1.07)}
+.exec-ph{
+  width:100%;height:100%;
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.18);font-size:5.5rem;
+}
+
+.exec-overlay{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  background:linear-gradient(
+    to top,
+    rgba(6,12,36,.95) 0%,
+    rgba(6,12,36,.78) 40%,
+    rgba(6,12,36,.15) 75%,
+    transparent 100%
+  );
+  padding:52px 16px 18px;
+}
+.exec-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.08rem;
+  font-weight:700;
+  color:#ffffff;
+  line-height:1.2;
+  margin-bottom:5px;
+  letter-spacing:-.01em;
+}
+.exec-pos{
+  font-size:.53rem;
+  font-weight:700;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#80b4f8;
+  line-height:1.3;
+}
+
+.exec-info{
+  padding:18px 18px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  background:var(--white);
+}
+.exec-desc{
+  font-size:.82rem;
+  color:var(--slate);
+  line-height:1.72;
+  font-weight:400;
+  margin-bottom:14px;
+}
+
+.exec-contacts{
+  display:flex;
+  gap:6px;
+  align-items:center;
+  padding-top:12px;
+  border-top:1px solid #eef1f8;
+}
+.exec-contacts a{
+  width:30px;height:30px;
+  border-radius:8px;
+  background:#eef1f8;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--navy);font-size:.63rem;
+  text-decoration:none;
+  transition:background .25s,color .25s,transform .2s;
+}
+.exec-contacts a:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
+
+/* ── EVENTS ── */
+.events-section{
+  padding:96px 56px;
+  background:var(--white);
+  position:relative;overflow:hidden;
+}
+.events-section::before{
+  content:'';position:absolute;
+  right:-100px;top:-100px;
+  width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,rgba(30,58,122,.05),transparent 70%);
+  pointer-events:none;
+}
+.events-header{
+  display:flex;justify-content:space-between;align-items:flex-end;
+  margin-bottom:52px;
+}
+.see-all{
+  font-weight:600;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--navy);text-decoration:none;
+  display:flex;align-items:center;gap:8px;
+  border:1.5px solid var(--navy);padding:10px 20px;border-radius:50px;
+  transition:background .25s,color .25s,gap .25s;
+}
+.see-all:hover{background:var(--navy);color:#fff;gap:13px}
+
+.events-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  grid-template-rows:auto;
+  gap:20px;
+}
+.event-card.featured{grid-row:span 2}
+
+.event-card{
+  background:var(--white);
+  border-radius:18px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  position:relative;
+  display:flex;flex-direction:column;
+  transition:transform .38s cubic-bezier(.23,1,.32,1),box-shadow .38s ease;
+}
+.event-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 28px 64px rgba(15,29,58,.13);
+  border-color:transparent;
+}
+
+.event-card-banner{
+  height:5px;
+  background:linear-gradient(90deg,var(--navy),var(--sky));
+  flex-shrink:0;
+}
+.event-card.featured .event-card-banner{
+  height:6px;
+  background:linear-gradient(90deg,var(--gold),#e8d070,var(--gold));
+  background-size:200% 100%;
+  animation:goldShimmer 3s linear infinite;
+}
+@keyframes goldShimmer{0%{background-position:0%}100%{background-position:200%}}
+
+.event-badge{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:.52rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;
+  padding:4px 11px;border-radius:20px;margin-bottom:12px;
+}
+.event-badge.live{background:rgba(220,38,38,.07);color:#dc2626;border:1px solid rgba(220,38,38,.14)}
+.event-badge.upcoming{background:rgba(200,168,75,.1);color:#8a6a00;border:1px solid rgba(200,168,75,.22)}
+.event-badge.weekly{background:rgba(37,87,184,.07);color:var(--mid);border:1px solid rgba(37,87,184,.14)}
+.event-badge.camp{background:rgba(16,115,67,.07);color:#107343;border:1px solid rgba(16,115,67,.14)}
+.event-badge.music{background:rgba(120,53,202,.07);color:#7835ca;border:1px solid rgba(120,53,202,.14)}
+.event-badge.study{background:rgba(30,58,122,.07);color:var(--navy);border:1px solid rgba(30,58,122,.14)}
+
+.event-body{padding:24px 24px 20px;flex:1;display:flex;flex-direction:column}
+.event-num{
+  font-family:'Playfair Display',serif;
+  font-size:.68rem;
+  color:var(--muted);letter-spacing:.12em;font-weight:500;
+  display:none;
+}
+.event-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.18rem;
+  font-weight:700;
+  color:var(--navy);
+  margin-bottom:8px;
+  line-height:1.25;
+}
+.event-card.featured .event-title{font-size:1.35rem}
+.event-desc{
+  font-size:.84rem;
+  color:var(--slate);
+  line-height:1.75;
+  font-weight:400;
+  flex:1;
+  margin-bottom:18px;
+}
+.event-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--light)}
+.event-when{display:flex;align-items:center;gap:5px;font-size:.7rem;color:var(--muted);font-weight:500}
+.event-when i{color:var(--mid);font-size:.65rem}
+.event-link{
+  font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--navy);text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+  padding:7px 14px;border-radius:30px;
+  background:var(--light);
+  transition:background .25s,color .25s,gap .25s;
+}
+.event-link:hover{background:var(--navy);color:#fff;gap:10px}
+
+/* ── MINISTRIES ── */
+.ministry-section{background:var(--white);padding:72px 56px;border-top:1px solid var(--border)}
+.ministry-flex{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.ministry-pill{display:flex;align-items:center;gap:10px;padding:14px 22px;border:1.5px solid var(--border);border-radius:50px;transition:background .3s,border-color .3s,transform .3s;cursor:default}
+.ministry-pill:hover{background:var(--navy);border-color:var(--navy);transform:translateY(-3px)}
+.m-icon{width:32px;height:32px;border-radius:50%;background:var(--light);display:flex;align-items:center;justify-content:center;color:var(--navy);font-size:.88rem;transition:background .3s,color .3s}
+.ministry-pill:hover .m-icon{background:var(--mid);color:#fff}
+.m-name{font-weight:600;font-size:.85rem;color:var(--navy);letter-spacing:.03em;transition:color .3s}
+.ministry-pill:hover .m-name{color:#fff}
+
+/* ── JOIN CTA ── */
+.join-section{background:var(--navy);padding:110px 56px;text-align:center;position:relative;overflow:hidden}
+.join-section::before{content:'';position:absolute;top:-2px;left:0;right:0;height:60px;background:var(--white);clip-path:ellipse(52% 100% at 50% 0%)}
+.join-section::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,rgba(30,58,122,.15),transparent 65%);pointer-events:none}
+.join-inner{position:relative;z-index:2}
+.join-eyebrow{font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5);font-weight:600;display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:18px}
+.join-eyebrow::before,.join-eyebrow::after{content:'';width:18px;height:1px;background:rgba(255,255,255,.3)}
+.join-h2{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:700;color:#fff;line-height:1.1;margin-bottom:16px}
+.join-h2 em{font-style:italic;color:rgba(255,255,255,.6)}
+.join-p{font-size:.95rem;color:rgba(255,255,255,.55);max-width:420px;margin:0 auto 40px;line-height:1.85;font-weight:400}
+
+/* ── CHATBOX ── */
+.chat-fab{position:fixed;bottom:28px;right:28px;z-index:800;width:56px;height:56px;background:var(--navy);border-radius:50%;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.25rem;box-shadow:0 8px 28px rgba(15,29,58,.3);transition:transform .25s,background .25s}
+.chat-fab:hover{transform:scale(1.1);background:var(--mid)}
+.chat-fab .badge{position:absolute;top:0;right:0;width:16px;height:16px;background:red;border-radius:50%;border:2px solid #fff;font-size:.5rem;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700}
+.chat-panel{position:fixed;bottom:96px;right:28px;z-index:800;width:320px;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(15,29,58,.2);border:1px solid var(--border);display:none;flex-direction:column;overflow:hidden}
+.chat-panel.open{display:flex;animation:chatIn .3s ease forwards}
+@keyframes chatIn{from{transform:scale(.9) translateY(10px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.chat-head{background:var(--navy);padding:18px 20px;display:flex;justify-content:space-between;align-items:center}
+.chat-head-title{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;font-weight:600}
+.chat-head-sub{font-size:.62rem;color:rgba(255,255,255,.6);margin-top:2px;font-weight:400}
+.chat-close{background:none;border:none;color:rgba(255,255,255,.6);font-size:1rem;cursor:pointer;transition:color .2s}
+.chat-close:hover{color:#fff}
+.chat-body{padding:16px;height:220px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:var(--off)}
+.chat-msg{padding:10px 14px;border-radius:12px;font-size:.82rem;line-height:1.55;max-width:82%;font-weight:400}
+.chat-msg.bot{background:var(--navy);color:#fff;border-bottom-left-radius:4px}
+.chat-msg.user{background:var(--white);color:var(--navy);border:1px solid var(--border);align-self:flex-end;border-bottom-right-radius:4px}
+.chat-quick{padding:10px 14px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid var(--border);background:#fff}
+.quick-btn{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:transparent;border:1.5px solid var(--border);color:var(--slate);border-radius:30px;padding:5px 12px;cursor:pointer;transition:background .2s,border-color .2s,color .2s}
+.quick-btn:hover{background:var(--navy);border-color:var(--navy);color:#fff}
+.chat-input-row{display:flex;border-top:1px solid var(--border)}
+.chat-input-row input{flex:1;border:none;outline:none;padding:13px 16px;font-size:.82rem;font-family:inherit;background:#fff;color:var(--navy)}
+.chat-input-row button{background:var(--navy);border:none;color:#fff;padding:0 18px;cursor:pointer;font-size:.85rem;transition:background .2s}
+.chat-input-row button:hover{background:var(--mid)}
+
+/* ── ENQUIRY SECTION ── */
+.enquiry-section{background:var(--off);padding:90px 56px;border-top:1px solid var(--border)}
+.enquiry-inner{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;max-width:1000px;margin:0 auto}
+.enquiry-info h3{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--navy);margin-bottom:12px}
+.enquiry-info p{font-size:.9rem;color:var(--slate);line-height:1.85;font-weight:400}
+.enquiry-contacts{margin-top:24px;display:flex;flex-direction:column;gap:10px}
+.eq-contact{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--slate);text-decoration:none;transition:color .25s;font-weight:400}
+.eq-contact:hover{color:var(--navy)}
+.eq-contact i{color:var(--navy);width:16px}
+.enquiry-form{background:#fff;border-radius:16px;padding:36px;border:1px solid var(--border);box-shadow:0 8px 32px rgba(15,29,58,.06)}
+.eq-form-group{margin-bottom:16px}
+.eq-form-group label{display:block;font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:7px}
+.eq-form-group input,.eq-form-group textarea,.eq-form-group select{width:100%;border:1.5px solid var(--border);border-radius:9px;padding:11px 14px;font-size:.88rem;font-family:inherit;color:var(--navy);outline:none;transition:border-color .25s;background:#fff}
+.eq-form-group input:focus,.eq-form-group textarea:focus,.eq-form-group select:focus{border-color:var(--navy)}
+.eq-form-group textarea{resize:vertical;min-height:80px}
+.eq-submit{width:100%;background:var(--navy);color:#fff;border:none;padding:13px;border-radius:9px;font-size:.78rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:background .25s,transform .2s;font-family:inherit}
+.eq-submit:hover{background:var(--mid);transform:translateY(-1px)}
+.eq-success{display:none;text-align:center;padding:20px;color:var(--navy);font-weight:600;font-size:.9rem;background:var(--light);border-radius:9px;margin-top:12px}
+
+/* ── FOOTER ── */
+footer{background:var(--black);border-top:1px solid rgba(255,255,255,.05)}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr;gap:48px;padding:64px 56px 44px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:5px}
+.footer-sub{font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--sky);font-weight:600;margin-bottom:12px}
+.footer-desc{font-size:.86rem;color:rgba(255,255,255,.4);line-height:1.85;font-weight:400;max-width:280px}
+.footer-email{display:inline-flex;align-items:center;gap:7px;font-size:.8rem;color:rgba(255,255,255,.5);text-decoration:none;margin-top:16px;transition:color .25s}
+.footer-email:hover{color:#fff}
+footer h5{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.3);font-weight:600;margin-bottom:18px}
+footer ul{list-style:none}
+footer ul li{margin-bottom:10px}
+footer ul li a{font-size:.85rem;color:rgba(255,255,255,.5);text-decoration:none;font-weight:400;transition:color .25s}
+footer ul li a:hover{color:rgba(255,255,255,.9)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:20px 56px;flex-wrap:wrap;gap:10px}
+.footer-bottom p{font-size:.7rem;color:rgba(255,255,255,.25);font-weight:400}
+.social-row{display:flex;gap:12px}
+.social-row a{width:34px;height:34px;border-radius:50%;border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.4);text-decoration:none;font-size:.8rem;transition:background .25s,border-color .25s,color .25s,transform .25s}
+.social-row a:hover{background:var(--mid);border-color:var(--mid);color:#fff;transform:translateY(-2px)}
+
+/* ── WAVE DIVIDERS ── */
+.wave-divider{display:block;width:100%;overflow:hidden;line-height:0;margin-top:-2px}
+.wave-divider svg{display:block;width:100%;height:40px}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1280px){
+  .exec-grid{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:1024px){
+  .events-grid{grid-template-columns:repeat(2,1fr)}
+  .event-card.featured{grid-row:auto}
+}
+@media(max-width:960px){
+  nav{padding:0 18px}
+  .nav-links{display:none}
+  .hero-body{grid-template-columns:1fr;padding:70px 20px 50px}
+  .hero-right{display:none}
+  .hero-bar{padding:14px 20px}
+  .about-grid,.vm-cards,.enquiry-inner{grid-template-columns:1fr}
+  .about-left{padding:60px 22px}
+  .about-right{padding:36px 22px}
+  .vm-section,.events-section,.ministry-section,.join-section,.enquiry-section,.exec-section{padding:64px 20px}
+  .exec-grid{grid-template-columns:repeat(2,1fr);gap:16px}
+  .events-grid{grid-template-columns:repeat(2,1fr)}
+  .stats-inner{grid-template-columns:repeat(3,1fr)}
+  .sb-item{padding:44px 16px}
+  .events-header{flex-direction:column;align-items:flex-start;gap:14px}
+  .footer-inner{grid-template-columns:1fr;gap:28px;padding:44px 20px 32px}
+  .footer-bottom{padding:18px 20px}
+}
+@media(max-width:640px){
+  .exec-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .events-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:1fr}
+  .sb-item:not(:last-child)::after{display:none}
+  .sb-item{padding:36px 20px}
+}
+@media(max-width:400px){
+  .exec-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE TRANSITION OVERLAY -->
+<div class="pt-overlay" id="ptOverlay">
+  <div class="pt-youth-icons">
+    <span>🙌</span><span>✝️</span><span>🕊️</span><span>🔥</span><span>🙏</span>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker-badge"><div class="ldot"></div>Live Now</div>
+  <div class="ticker-runner">
+    <span class="ticker-item">WAY LIGHT Bible Study — Every Wednesday &amp; Thursday · 9 PM to 10 PM</span>
+    <span class="ticker-item">Megalono 3.0 — Our Flagship Annual Gathering · Coming Soon</span>
+    <span class="ticker-item">Logos 2.0 — Deep Dive into the Word · Register Now</span>
+    <span class="ticker-item">Asaphians Music Ministry — Join Our Worship Team</span>
+    <span class="ticker-item">Anointed Youth for Christ — Set Apart · Called · Empowered</span>
+    <span class="ticker-item">WAY LIGHT Bible Study — Every Wednesday &amp; Thursday · 9 PM to 10 PM</span>
+    <span class="ticker-item">Megalono 3.0 — Our Flagship Annual Gathering · Coming Soon</span>
+    <span class="ticker-item">Logos 2.0 — Deep Dive into the Word · Register Now</span>
+    <span class="ticker-item">Asaphians Music Ministry — Join Our Worship Team</span>
+    <span class="ticker-item">Anointed Youth for Christ — Set Apart · Called · Empowered</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="nav">
+  <a href="yfc_home.html" class="logo-wrap">
+    <div class="logo-mark"><i class="fas fa-dove"></i></div>
+    <div class="logo-text">
+      <span class="logo-top">Anointed</span>
+      <span class="logo-main">Youth for Christ</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#Home" class="active">Home</a></li>
+    <li><a href="#heads">Heads</a></li>
+    <li><a href="exe.html">Camp</a></li>
+  </ul>
+  <a href="login.html" class="nav-btn">Join Us</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-blob1"></div>
+  <div class="hero-blob2"></div>
+
+  <div class="hero-body">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="ey-line"></span>Anointed · Called · Empowered</div>
+      <h1 class="hero-h1">
+        <span class="anointed">Anointed</span>
+        Youth for<br>
+        <span class="muted">Christ</span>
+      </h1>
+      <p class="hero-verse">"The Spirit of the Lord is upon me, for he has anointed me…" — Luke 4:18</p>
+      <p class="hero-desc">A community set apart — walking in the anointing of Christ, empowering youth to live boldly for God's Kingdom.</p>
+      <div class="hero-btns">
+        <a href="login.html" class="btn-navy">Join the Movement <i class="fas fa-arrow-right"></i></a>
+        <a href="exe2.html" class="btn-ghost page-link">Meet Our Team</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <!-- SVG arrows with polygon image markers -->
+      <svg class="arrows-svg" viewBox="0 0 600 500" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="imgPattern1" patternUnits="objectBoundingBox" width="1" height="1">
+            <image href="images/arrow-marker1.jpg" x="0" y="0" width="18" height="18" preserveAspectRatio="xMidYMid slice"/>
+          </pattern>
+          <pattern id="imgPattern2" patternUnits="objectBoundingBox" width="1" height="1">
+            <image href="images/arrow-marker2.jpg" x="0" y="0" width="18" height="18" preserveAspectRatio="xMidYMid slice"/>
+          </pattern>
+        </defs>
+        <path class="arr-path" d="M490 50 Q548 28 590 8"/>
+        <polygon points="590,8 578,3 582,15" fill="url(#imgPattern1)"/>
+        <path class="arr-path" d="M490 50 Q568 52 600 80"/>
+        <polygon points="600,80 587,72 594,85" fill="url(#imgPattern2)"/>
+        <path class="arr-path" d="M415 475 Q440 508 462 525"/>
+        <polygon points="462,525 449,520 455,533" fill="rgba(15,29,58,.3)"/>
+        <path class="arr-path" d="M415 475 Q378 508 348 530"/>
+        <polygon points="348,530 356,518 362,531" fill="rgba(15,29,58,.3)"/>
+        <path class="arr-path" d="M118 350 Q62 370 22 388"/>
+        <polygon points="22,388 34,381 36,395" fill="rgba(15,29,58,.3)"/>
+        <path class="arr-path" d="M118 350 Q56 318 14 295"/>
+        <polygon points="14,295 27,290 26,303" fill="rgba(15,29,58,.3)"/>
+        <path class="arr-path" d="M118 120 Q56 100 12 80"/>
+        <polygon points="12,80 25,76 23,89" fill="rgba(15,29,58,.3)"/>
+      </svg>
+
+      <div class="branch-label bl1">Preach Gospel 🔥</div>
+      <div class="branch-label bl2">Youth Empowerment ✊</div>
+      <div class="branch-label bl3">Life for Christ 🕊️</div>
+      <div class="branch-label bl4">Be Anointed 🙌</div>
+      <div class="branch-label bl5">Live for the Lord 🙏</div>
+      <div class="branch-label bl6">Walk in Faith ✝️</div>
+
+      <!-- VIDEO SLIDESHOW BOX -->
+      <div class="media-video" id="videoSlideshow">
+        
+        <!-- Video Slide 1 -->
+        <div class="vid-slide active">
+          <video autoplay muted loop playsinline poster="images/video-poster.jpg">
+            <source src="MVI_6802.MP4" type="video/mp4">
+          </video>
+          <div class="vid-caption">AYC Highlights — God's Moving</div>
+        </div>
+
+        <!-- Video Slide 2 -->
+        <div class="vid-slide">
+          <video muted loop playsinline poster="images/poster2.jpg">
+            <source src="YOUR_VIDEO_2.MP4" type="video/mp4">
+          </video>
+          <div class="vid-caption">Worship Night Fire</div>
+        </div>
+
+        <!-- Video Slide 3 -->
+        <div class="vid-slide">
+          <video muted loop playsinline poster="images/poster3.jpg">
+            <source src="YOUR_VIDEO_3.MP4" type="video/mp4">
+          </video>
+          <div class="vid-caption">Megalono Highlights</div>
+        </div>
+
+        <!-- Video Navigation Buttons -->
+        <div class="vid-nav">
+          <button class="vid-btn" onclick="prevVid()"><i class="fas fa-chevron-left"></i></button>
+          <button class="vid-btn" onclick="nextVid()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+      <!-- SMALL SLIDESHOW -->
+      <div class="media-img-sm">
+        <div class="slide-sm active">
+          <img src="heads.JPG" alt="Our Heads" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="slide-sm-fallback" style="display:none"><i class="fas fa-image"></i><span>Image Missing</span></div>
+        </div>
+        <div class="slide-sm">
+          <img src="camp high.JPG" alt="Ministry" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="slide-sm-fallback" style="display:none"><i class="fas fa-image"></i><span>Image Missing</span></div>
+        </div>
+        <div class="slide-sm">
+          <img src="headsprayer.jpg" alt="Megalono" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="slide-sm-fallback" style="display:none"><i class="fas fa-image"></i><span>Replace: images/meg2.jpg</span></div>
+        </div>
+        <div class="sm-img-label">📸 Our Moments</div>
+      </div>
+
+      <div class="stat-pill pill-1">
+        <div class="pill-icon"><i class="fas fa-users"></i></div>
+        <div>
+          <div class="pill-num">120+</div>
+          <div class="pill-label">Members</div>
+        </div>
+      </div>
+      <div class="stat-pill pill-2">
+        <div class="pill-icon"><i class="fas fa-fire-flame-curved"></i></div>
+        <div>
+          <div class="pill-num">25+</div>
+          <div class="pill-label">Events</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-bar">
+    <div class="sdots">
+      <button class="sdot active" onclick="goSlide(0)"></button>
+      <button class="sdot" onclick="goSlide(1)"></button>
+      <button class="sdot" onclick="goSlide(2)"></button>
+    </div>
+    <span class="slide-ctr" id="slideCtr">01 / 03</span>
+    <span class="scroll-hint">Scroll <i class="fas fa-arrow-down"></i></span>
+  </div>
+</section>
+
+<!-- WAVE DIVIDER -->
+<div class="wave-divider" style="background:var(--white)">
+  <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,20 C300,40 900,0 1200,20 L1200,40 L0,40 Z" fill="#0f1d3a"/></svg>
+</div>
+
+<!-- STATS BAND -->
+<div class="stats-band reveal">
+  <div class="stats-inner">
+    <div class="sb-item">
+      <div class="sb-icon"><i class="fas fa-users"></i></div>
+      <div class="sb-num-wrap">
+        <span class="sb-num" data-target="120">0</span>
+        <span class="sb-num-suffix">+</span>
+      </div>
+      <div class="sb-label">Anointed Members</div>
+      <div class="sb-sublabel">and growing strong</div>
+    </div>
+    <div class="sb-item">
+      <div class="sb-icon"><i class="fas fa-fire-flame-curved"></i></div>
+      <div class="sb-num-wrap">
+        <span class="sb-num" data-target="25">0</span>
+        <span class="sb-num-suffix">+</span>
+      </div>
+      <div class="sb-label">Events Hosted</div>
+      <div class="sb-sublabel">since 2021</div>
+    </div>
+    <div class="sb-item">
+      <div class="sb-icon"><i class="fas fa-dove"></i></div>
+      <div class="sb-num-wrap">
+        <span class="sb-num" data-target="13">0</span>
+        <span class="sb-num-suffix">+</span>
+      </div>
+      <div class="sb-label">Dedicated Leaders</div>
+      <div class="sb-sublabel">serving the community</div>
+    </div>
+  </div>
+</div>
+
+<!-- WAVE DIVIDER -->
+<div class="wave-divider" style="background:var(--navy)">
+  <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,20 C300,0 900,40 1200,20 L1200,40 L0,40 Z" fill="#f8f9fc"/></svg>
+</div>
+
+<!-- ABOUT -->
+<section class="reveal">
+  <div class="about-grid">
+    <div class="about-left">
+      <p class="section-tag">Who We Are</p>
+      <h2 class="section-h2">Set apart,<br><em>anointed</em> to serve.</h2>
+      <p class="about-body">Anointed Youth for Christ is a Spirit-filled community called to carry the anointing of Christ to the next generation. We believe every young person is uniquely appointed by God — to lead, to worship, to serve, and to transform.</p>
+      <a href="yfcabout.html" class="text-link page-link">Our Story <i class="fas fa-arrow-right"></i></a>
+    </div>
+    <div class="about-right">
+      <!-- GALLERY SLIDESHOW -->
+      <div class="gallery-slideshow">
+        <div class="gallery-slide active">
+          <img src="camp high.JPG" alt="Megalono 2023" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-slide-fallback" style="display:none"><i class="fas fa-image"></i><span>Replace: images/event-main.jpg</span></div>
+          <div class="gallery-cap">Megalono 2023 — Annual Gathering</div>
+        </div>
+        <div class="gallery-slide">
+          <img src="heads.JPG" alt="Worship Night" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-slide-fallback" style="display:none"><i class="fas fa-image"></i><span>Replace: images/worship.jpg</span></div>
+          <div class="gallery-cap">Worship Night</div>
+        </div>
+        <div class="gallery-slide">
+          <img src="logos.jpg" alt="Logos Bible Study" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-slide-fallback" style="display:none"><i class="fas fa-image"></i><span>Replace: images/logos.jpg</span></div>
+          <div class="gallery-cap">Logos Bible Study</div>
+        </div>
+        <div class="gallery-slide">
+          <img src="campvolu.JPG" alt="AYC Camp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+          <div class="gallery-slide-fallback" style="display:none"><i class="fas fa-image"></i><span>Replace: images/camp.jpg</span></div>
+          <div class="gallery-cap">AYC Camp</div>
+        </div>
+        <div class="gallery-nav">
+          <button class="gallery-btn" onclick="prevGallery()"><i class="fas fa-chevron-left"></i></button>
+          <button class="gallery-btn" onclick="nextGallery()"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+      <div class="gallery-dots" id="galleryDots">
+        <button class="gallery-dot active" onclick="goGallery(0)"></button>
+        <button class="gallery-dot" onclick="goGallery(1)"></button>
+        <button class="gallery-dot" onclick="goGallery(2)"></button>
+        <button class="gallery-dot" onclick="goGallery(3)"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════
+     EXECUTIVE COMMITTEE — COMPACT HORIZONTAL CARDS
+     ══════════════════════════════════════════════════ -->
+<section class="exec-section reveal">
+  <div class="exec-header">
+    <p class="section-tag">Leadership</p>
+    <h2 class="section-h2">Executive <em>Committee</em></h2>
+    <p class="exec-subtitle">The anointed heads guiding our community</p>
+  </div>
+
+  <div class="exec-grid">
+
+    <!-- CARD 1 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="abhin.JPG" alt="President" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name"> Abhinjose JM</div>
+          <div class="exec-pos">Chairman</div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Leading AYC with vision, faith, and a heart to empower the next generation for Christ.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="jephin.jpg" alt="Vice President" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name">Jephin S Joy</div>
+          <div class="exec-pos">Vice Chairman</div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Supporting leadership and helping steer AYC's spiritual direction and growth.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="aneesh.jpg" alt="Secretary" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name">Aneesh A</div>
+          <div class="exec-pos">Secretary</div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Overseeing administrative operations and keeping AYC organized and on mission.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="anishma.jpg" alt="Joint Secretary" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name">Anishma S S</div>
+          <div class="exec-pos">Jt-Secretary</div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Assisting in administration and coordinating key activities across the ministry.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 5 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="febi.jpg" alt="Treasurer" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name">Febi Aneesh</div>
+          <div class="exec-pos">Treasurer</div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Managing AYC's finances with integrity, accountability, and faithful stewardship.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 6 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="sruthy.jpg" alt="Youth Leader" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name">Sruthy S</div>
+          <div class="exec-pos">Jt-Treasurer</div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Guiding youth spiritually and building a culture of prayer, discipleship, and anointing.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 7 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="anisha.jpg" alt="Worship Head" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name">Anisha S S</div>
+          <div class="exec-pos">Child Ministry and Prayer cell Lead </div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Leading the Asaphians music ministry in worship, sound, and the presence of God.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 8 -->
+    <div class="exec-card reveal">
+      <div class="exec-img">
+        <img src="abey.jpg" alt="Media Lead" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="exec-ph" style="display:none"><i class="fas fa-user"></i></div>
+        <div class="exec-overlay">
+          <div class="exec-name">Abey </div>
+          <div class="exec-pos">Publicity Lead</div>
+        </div>
+      </div>
+      <div class="exec-info">
+        <p class="exec-desc">Driving AYC's digital presence, social media outreach, and online ministry platforms.</p>
+        <div class="exec-contacts">
+          <a href="tel:9037106580" title="Call"><i class="fas fa-phone"></i></a>
+          <a href="mailto:yfchrist2021@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+          <a href="https://wa.me/919037106580" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VISION & MISSION -->
+<div class="wave-divider" style="background:var(--white)">
+  <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,20 C300,40 900,0 1200,20 L1200,40 L0,40 Z" fill="#080f1e"/></svg>
+</div>
+<section class="vm-section reveal">
+  <div class="vm-header">
+    <p class="section-tag">Purpose</p>
+    <h2 class="section-h2 light">Walking in the <em>Anointing</em></h2>
+  </div>
+  <div class="vm-cards">
+    <div class="vm-card">
+      <div class="vm-num">01</div>
+      <div class="vm-icon"><i class="fas fa-eye"></i></div>
+      <div class="vm-label">Vision</div>
+      <h3 class="vm-h3">A platform to grow in faith</h3>
+      <p class="vm-p">To provide a Spirit-led platform where youth grow in their Christian walk — equipped spiritually, emotionally, and relationally for God's purposes.</p>
+    </div>
+    <div class="vm-card">
+      <div class="vm-num">02</div>
+      <div class="vm-icon"><i class="fas fa-hands-praying"></i></div>
+      <div class="vm-label">Mission</div>
+      <h3 class="vm-h3">Share the Gospel. Empower youth.</h3>
+      <p class="vm-p">To share the Gospel and empower youth to overcome physical and spiritual battles — strengthening their anointing in every area of life.</p>
+    </div>
+  </div>
+</section>
+<div class="wave-divider" style="background:var(--black)">
+  <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,20 C300,0 900,40 1200,20 L1200,40 L0,40 Z" fill="#f8f9fc"/></svg>
+</div>
+
+<!-- EVENTS -->
+<section class="events-section reveal">
+  <div class="events-header">
+    <div>
+      <p class="section-tag">What's Happening</p>
+      <h2 class="section-h2">Events &amp; <em>Programs</em></h2>
+    </div>
+    <a href="event.html" class="see-all page-link">View All <i class="fas fa-arrow-right"></i></a>
+  </div>
+  <div class="events-grid">
+
+    <div class="event-card featured">
+      <div class="event-card-banner"></div>
+      <div class="event-body">
+        <div class="event-badge upcoming">⭐ Flagship Event</div>
+        <div class="event-title">Megalono 3.0</div>
+        <p class="event-desc">Our flagship annual gathering — a powerful convergence of worship, fellowship, and the fire of the Holy Spirit. Don't miss the movement.</p>
+        <div class="event-footer">
+          <span class="event-when"><i class="fas fa-calendar-alt"></i> Coming Soon 2025</span>
+          <a href="Megalono 3.0.html" class="event-link page-link">Register <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-card-banner"></div>
+      <div class="event-body">
+        <div class="event-badge study">📖 Bible Study</div>
+        <div class="event-title">Logos 2.0</div>
+        <p class="event-desc">A deep dive into the Word — structured Bible study sessions designed for community growth and spiritual depth.</p>
+        <div class="event-footer">
+          <span class="event-when"><i class="fas fa-calendar-alt"></i> Upcoming</span>
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-card-banner"></div>
+      <div class="event-body">
+        <div class="event-badge camp">🏕️ Annual Camp</div>
+        <div class="event-title">AYC Camp 2025</div>
+        <p class="event-desc">Our annual youth camp — worship, adventure, fellowship and the Word in an immersive retreat experience.</p>
+        <div class="event-footer">
+          <span class="event-when"><i class="fas fa-calendar-alt"></i> 2025</span>
+          <a href="exe.html" class="event-link page-link">Register <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-card-banner"></div>
+      <div class="event-body">
+        <div class="event-badge weekly">📲 Weekly Online</div>
+        <div class="event-title">Way Light Bible Study</div>
+        <p class="event-desc">Weekly online study every Wednesday &amp; Thursday, 9–10 PM. Join the community on WhatsApp.</p>
+        <div class="event-footer">
+          <span class="event-when"><i class="fas fa-clock"></i> Wed &amp; Thu · 9 PM</span>
+          <a href="https://chat.whatsapp.com/KrGKMg4gRcL1gGUpZb3tRY" class="event-link">Join <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-card-banner"></div>
+      <div class="event-body">
+        <div class="event-badge music">🎵 Music Ministry</div>
+        <div class="event-title">Asaphians</div>
+        <p class="event-desc">Our dedicated music ministry — leading worship through song, instruments, voice, and sound that ushers in God's presence.</p>
+        <div class="event-footer">
+          <span class="event-when"><i class="fas fa-music"></i> Ongoing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-card">
+      <div class="event-card-banner"></div>
+      <div class="event-body">
+        <div class="event-badge live">🔥 Explore</div>
+        <div class="event-title">What Next</div>
+        <p class="event-desc">Discover what's on the horizon — step into what God has uniquely prepared for you in this season.</p>
+        <div class="event-footer">
+          <span class="event-when"><i class="fas fa-compass"></i> Discover Now</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MINISTRIES -->
+<section class="ministry-section reveal">
+  <p class="section-tag">Serve With Us</p>
+  <h2 class="section-h2">Areas of <em>Ministry</em></h2>
+  <div class="ministry-flex">
+    <div class="ministry-pill"><div class="m-icon"><i class="fas fa-music"></i></div><span class="m-name">Music Ministry</span></div>
+    <div class="ministry-pill"><div class="m-icon"><i class="fas fa-users"></i></div><span class="m-name">Youth Ministry</span></div>
+    <div class="ministry-pill"><div class="m-icon"><i class="fas fa-hands-praying"></i></div><span class="m-name">Prayer Cell</span></div>
+    <div class="ministry-pill"><div class="m-icon"><i class="fas fa-child"></i></div><span class="m-name">Child Ministry</span></div>
+    <div class="ministry-pill"><div class="m-icon"><i class="fas fa-globe"></i></div><span class="m-name">Online Activity</span></div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="enquiry-section reveal">
+  <div class="enquiry-inner">
+    <div class="enquiry-info">
+      <p class="section-tag">Get in Touch</p>
+      <h3>Have a Question?<br><em style="font-family:'Playfair Display',serif;font-style:italic;color:var(--mid)">We're here.</em></h3>
+      <p style="margin-top:14px;font-size:.9rem;color:var(--slate);line-height:1.85">Reach out with any questions about membership, events, or ministry. Our team is happy to connect with you.</p>
+      <div class="enquiry-contacts">
+        <a href="mailto:yfchrist2021@gmail.com" class="eq-contact"><i class="fas fa-envelope"></i> yfchrist2021@gmail.com</a>
+        <a href="tel:+919037106580" class="eq-contact"><i class="fas fa-phone"></i> +91 9037106580</a>
+        <a href="https://www.instagram.com/youth_4__christ" class="eq-contact" target="_blank"><i class="fab fa-instagram"></i> @youth_4__christ</a>
+        <a href="https://chat.whatsapp.com/KrGKMg4gRcL1gGUpZb3tRY" class="eq-contact" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Community</a>
+      </div>
+    </div>
+    <div class="enquiry-form">
+      <div class="eq-form-group">
+        <label>Your Name</label>
+        <input type="text" id="eqName" placeholder="Full name">
+      </div>
+      <div class="eq-form-group">
+        <label>Email</label>
+        <input type="email" id="eqEmail" placeholder="you@example.com">
+      </div>
+      <div class="eq-form-group">
+        <label>Subject</label>
+        <select id="eqSubject">
+          <option>General Enquiry</option>
+          <option>Camp Registration</option>
+          <option>Membership</option>
+          <option>Ministry / Volunteer</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="eq-form-group">
+        <label>Message</label>
+        <textarea id="eqMessage" placeholder="Your message here..."></textarea>
+      </div>
+      <button class="eq-submit" id="eqBtn" onclick="handleEnquiry(event)">Send Message <i class="fas fa-paper-plane"></i></button>
+      <div class="eq-success" id="eqSuccess">✅ Opening your mail app… Message composed!</div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN CTA -->
+<div class="wave-divider" style="background:var(--off)">
+  <svg viewBox="0 0 1200 40" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,20 C300,40 900,0 1200,20 L1200,40 L0,40 Z" fill="#0f1d3a"/></svg>
+</div>
+<section class="join-section reveal">
+  <div class="join-inner">
+    <div class="join-eyebrow">Be Part of Something Greater</div>
+    <h2 class="join-h2">Ready to walk in<br><em>your anointing?</em></h2>
+    <p class="join-p">Join Anointed Youth for Christ — a community that will challenge, equip, and walk alongside you as you step into God's unique calling.</p>
+    <a href="login.html" class="btn-navy" style="margin:0 auto">Create Free Account <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-sub">Anointed</div>
+      <div class="footer-brand">Youth for Christ</div>
+      <p class="footer-desc">Empowering youth through faith, love, and the anointing of the Holy Spirit since 2021. Rooted in scripture. Built for community.</p>
+      <a href="mailto:yfchrist2021@gmail.com" class="footer-email"><i class="fas fa-envelope"></i> yfchrist2021@gmail.com</a>
+    </div>
+    <div>
+      <h5>Navigate</h5>
+      <ul>
+        <li><a href="yfc_home.html">Home</a></li>
+        <li><a href="yfcabout.html">About</a></li>
+        <li><a href="exe2.html">Heads</a></li>
+        <li><a href="event.html">Events</a></li>
+        <li><a href="ayc_camp.html">Camp</a></li>
+        <li><a href="yfccontact.html">Contact</a></li>
+        <li><a href="login.html">Join Us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Connect</h5>
+      <ul>
+        <li><a href="https://www.instagram.com/youth_4__christ" target="_blank"><i class="fab fa-instagram"></i> &nbsp;Instagram</a></li>
+        <li><a href="https://youtube.com/@youthforchrist-n8q" target="_blank"><i class="fab fa-youtube"></i> &nbsp;YouTube</a></li>
+        <li><a href="https://chat.whatsapp.com/KrGKMg4gRcL1gGUpZb3tRY" target="_blank"><i class="fab fa-whatsapp"></i> &nbsp;WhatsApp</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 Anointed Youth for Christ. All rights reserved.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/youth_4__christ" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://youtube.com/@youthforchrist-n8q" target="_blank"><i class="fab fa-youtube"></i></a>
+      <a href="https://chat.whatsapp.com/KrGKMg4gRcL1gGUpZb3tRY" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+</footer>
+
+<!-- CHATBOX FAB -->
+<button class="chat-fab" id="chatFab" onclick="toggleChat()">
+  <i class="fas fa-comments"></i>
+  <span class="badge">1</span>
+</button>
+
+<!-- CHAT PANEL -->
+<div class="chat-panel" id="chatPanel">
+  <div class="chat-head">
+    <div>
+      <div class="chat-head-title">🕊️ AYC Connect</div>
+      <div class="chat-head-sub">Usually replies in minutes</div>
+    </div>
+    <button class="chat-close" onclick="toggleChat()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="chat-body" id="chatBody">
+    <div class="chat-msg bot">Hi there! 👋 Welcome to Anointed Youth for Christ. How can we help you today?</div>
+  </div>
+  <div class="chat-quick">
+    <button class="quick-btn" onclick="quickChat('How to join?')">How to join?</button>
+    <button class="quick-btn" onclick="quickChat('Camp details')">Camp details</button>
+    <button class="quick-btn" onclick="quickChat('Events')">Events</button>
+    <button class="quick-btn" onclick="quickChat('Contact')">Contact</button>
+  </div>
+  <div class="chat-input-row">
+    <input type="text" id="chatInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()"><i class="fas fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<script>
+/* ── HERO SMALL IMAGE SLIDESHOW ── */
+let cur=0;
+const slides=document.querySelectorAll('.media-img-sm .slide-sm');
+const sdots=document.querySelectorAll('.sdot');
+const ctr=document.getElementById('slideCtr');
+const labels=['01 / 03','02 / 03','03 / 03'];
+function goSlide(n){
+  slides[cur].classList.remove('active');
+  sdots[cur].classList.remove('active');
+  cur=n;
+  slides[cur].classList.add('active');
+  sdots[cur].classList.add('active');
+  if(ctr) ctr.textContent=labels[cur];
+}
+setInterval(()=>goSlide((cur+1)%slides.length),5000);
+
+/* ── HERO VIDEO SLIDESHOW ── */
+let vCur=0;
+const vSlides=document.querySelectorAll('.vid-slide');
+function goVid(n){
+  if(vSlides.length === 0) return;
+  // Pause the currently active video
+  const curVid = vSlides[vCur].querySelector('video');
+  if(curVid) curVid.pause();
+
+  vSlides[vCur].classList.remove('active');
+  vCur=(n+vSlides.length)%vSlides.length;
+  vSlides[vCur].classList.add('active');
+
+  // Play the newly active video from the start
+  const newVid = vSlides[vCur].querySelector('video');
+  if(newVid) {
+    newVid.currentTime = 0;
+    newVid.play().catch(e=>console.log("Autoplay blocked or error: ", e));
+  }
+}
+function nextVid(){goVid(vCur+1);}
+function prevVid(){goVid(vCur-1);}
+
+/* ── GALLERY SLIDESHOW ── */
+let gCur=0;
+const gSlides=document.querySelectorAll('.gallery-slide');
+const gDots=document.querySelectorAll('.gallery-dot');
+let gTimer=null;
+function goGallery(n){
+  gSlides[gCur].classList.remove('active');
+  if(gDots[gCur]) gDots[gCur].classList.remove('active');
+  gCur=(n+gSlides.length)%gSlides.length;
+  gSlides[gCur].classList.add('active');
+  if(gDots[gCur]) gDots[gCur].classList.add('active');
+}
+function nextGallery(){goGallery(gCur+1);resetGalleryTimer();}
+function prevGallery(){goGallery(gCur-1);resetGalleryTimer();}
+function resetGalleryTimer(){clearInterval(gTimer);gTimer=setInterval(()=>goGallery(gCur+1),4000);}
+gTimer=setInterval(()=>goGallery(gCur+1),4000);
+
+/* ── NAVBAR ELEVATION ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('elevated',window.scrollY>40);
+});
+
+/* ── SCROLL REVEAL ── */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ── COUNTER ── */
+const cio=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,end=parseInt(el.dataset.target);
+    let n=0;const step=end/60;
+    const t=setInterval(()=>{
+      n=Math.min(n+step,end);
+      el.textContent=Math.floor(n);
+      if(n>=end)clearInterval(t);
+    },18);
+    cio.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('[data-target]').forEach(c=>cio.observe(c));
+
+/* ── PAGE TRANSITION ── */
+const overlay=document.getElementById('ptOverlay');
+document.querySelectorAll('.page-link').forEach(link=>{
+  link.addEventListener('click',e=>{
+    const href=link.getAttribute('href');
+    if(!href||href.startsWith('http')||href.startsWith('#'))return;
+    e.preventDefault();
+    overlay.classList.add('active');
+    setTimeout(()=>{ window.location.href=href; },700);
+  });
+});
+
+/* ── CHATBOX ── */
+let chatOpen=false;
+const chatFab=document.getElementById('chatFab');
+const chatPanel=document.getElementById('chatPanel');
+const chatBadge=chatFab.querySelector('.badge');
+const botReplies={
+  'how to join?':'To join AYC, click the "Join Us" button in the navbar and create a free account! 🙌',
+  'camp details':'Our annual AYC Camp 2025 is coming! Click <a href="ayc_camp.html" style="color:#4580d4">here</a> to see details and register. 🏕️',
+  'events':'We have Megalono 3.0, Logos 2.0, Way Light Bible Study, Asaphians & more! Visit our Events page. 🔥',
+  'contact':'You can reach us at yfchrist2021@gmail.com or WhatsApp us at +91 9037106580 🕊️',
+};
+function toggleChat(){
+  chatOpen=!chatOpen;
+  chatPanel.classList.toggle('open',chatOpen);
+  if(chatOpen){chatBadge.style.display='none';}
+}
+function quickChat(q){
+  addMsg(q,'user');
+  setTimeout(()=>{
+    addMsg(botReplies[q.toLowerCase()]||"Thanks for reaching out! Our team will connect with you soon. 🙏",'bot');
+  },500);
+}
+function sendChat(){
+  const input=document.getElementById('chatInput');
+  const val=input.value.trim();
+  if(!val)return;
+  addMsg(val,'user');
+  input.value='';
+  const key=Object.keys(botReplies).find(k=>val.toLowerCase().includes(k.split(' ')[0]));
+  setTimeout(()=>{
+    addMsg(key?botReplies[key]:"Thanks for your message! We'll get back to you soon. God bless! 🙏",'bot');
+  },600);
+}
+function addMsg(text,who){
+  const body=document.getElementById('chatBody');
+  const div=document.createElement('div');
+  div.className=`chat-msg ${who}`;
+  div.innerHTML=text;
+  body.appendChild(div);
+  body.scrollTop=body.scrollHeight;
+}
+
+/* ── ENQUIRY — opens mailto to ajhere143@gmail.com ── */
+function handleEnquiry(e){
+  const name=document.getElementById('eqName').value.trim();
+  const email=document.getElementById('eqEmail').value.trim();
+  const subject=document.getElementById('eqSubject').value;
+  const message=document.getElementById('eqMessage').value.trim();
+
+  if(!name||!message){alert('Please fill in your name and message.');return;}
+
+  const mailSubject=encodeURIComponent('[AYC Enquiry] '+subject+' — '+name);
+  const mailBody=encodeURIComponent(
+    'Name: '+name+'\n'+
+    'Email: '+(email||'Not provided')+'\n'+
+    'Subject: '+subject+'\n\n'+
+    'Message:\n'+message+'\n\n'+
+    '— Sent via AYC Website Contact Form'
+  );
+
+  const btn=document.getElementById('eqBtn');
+  const success=document.getElementById('eqSuccess');
+  btn.textContent='Opening Mail App...';
+  btn.style.background='#1e7a3a';
+
+  window.location.href='mailto:ajhere143@gmail.com?subject='+mailSubject+'&body='+mailBody;
+
+  setTimeout(()=>{
+    success.style.display='block';
+    btn.textContent='Send Message ✈';
+    btn.style.background='';
+  },1200);
+}
+</script>
+</body>
+</html>
